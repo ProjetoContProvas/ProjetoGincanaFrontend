@@ -18,22 +18,22 @@ import br.ifba.tarefa.service.StatusService;
 import br.ifba.tarefa.service.TarefaService;
 
 @Controller
-@RequestMapping("/tarefa")
+@RequestMapping("/status")
 public class StatusController {
 	@Autowired
 	private StatusService statusService;
 	
 	@GetMapping("/")
 	public String index(Model model) {
-		System.out.println("tarefas_lista - init");
+		System.out.println("status_lista - init");
 		List<StatusModel> list = this.statusService.getStatus();
-		model.addAttribute("tarefas", list);
-		return "tarefa/index";
+		model.addAttribute("status", list);
+		return "status/index";
 	}
 
 	@GetMapping("/adicionar_form")
 	public String adicionar_form() {
-		return "tarefa/adicionar_form";
+		return "status/adicionar_form";
 	}
 	
 	@PostMapping("/adicionar")
