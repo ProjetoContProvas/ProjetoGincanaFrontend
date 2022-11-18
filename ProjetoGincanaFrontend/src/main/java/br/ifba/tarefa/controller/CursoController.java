@@ -1,4 +1,4 @@
-package br.ifba.curso.controller;
+package br.ifba.tarefa.controller;
 
 import java.sql.Date;
 import java.util.List;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.ifba.curso.model.CursoModel;
-import br.ifba.curso.service.CursoService;
+import br.ifba.tarefa.model.CursoModel;
+import br.ifba.tarefa.service.CursoService;
 
 @Controller
 @RequestMapping("/curso")

@@ -1,4 +1,4 @@
-package br.ifba.curso.model;
+package br.ifba.tarefa.model;
 
 import java.sql.Date;
 

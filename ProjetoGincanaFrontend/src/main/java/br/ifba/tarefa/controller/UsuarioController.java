@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.ifba.curso.model.UsuarioModel;
+import br.ifba.tarefa.model.UsuarioModel;
 import br.ifba.tarefa.service.UsuarioService;
 
 @Controller
