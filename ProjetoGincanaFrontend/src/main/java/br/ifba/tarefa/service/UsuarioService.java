@@ -10,7 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import br.edu.ifba.usuario.model.UsuarioModel;
+import br.ifba.tarefa.model.UsuarioModel;
 import reactor.core.publisher.Mono;
 
 
