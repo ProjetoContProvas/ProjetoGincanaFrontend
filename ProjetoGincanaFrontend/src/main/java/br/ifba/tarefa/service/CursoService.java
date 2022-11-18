@@ -1,4 +1,4 @@
-package br.ifba.curso.service;
+package br.ifba.tarefa.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import br.ifba.curso.model.CursoModel;
+import br.ifba.tarefa.model.CursoModel;
 import reactor.core.publisher.Mono;
 
 
