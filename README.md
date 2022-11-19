@@ -8,7 +8,7 @@
 
 -Volte ao Redmi e clique na opção Display the source blob para copiar as dependências do projeto
 
--Compie de (<?xml) até (</project>) e substitua as informações do pom.xml geradas no seu projeto !
+-Compie de (<?xml) até (/project>) e substitua as informações do pom.xml geradas no seu projeto !
 
 # pom.xml
 
