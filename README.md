@@ -1,9 +1,12 @@
 #pom.xml
-Compie de (<?xml) até (</project>) e cole no novo pom gerado ao seu projeto !
 
-#Copiar
+-Faça um fork do projeto
 
+-Importe apenas a branch Master
 
+-Importe O Projeto no Sprint Tool Suite através de um repositorio git!
+
+-Compie de (<?xml) até (</project>) e cole no novo pom gerado ao seu projeto !
 
 
 
