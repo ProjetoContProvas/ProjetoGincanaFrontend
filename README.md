@@ -6,10 +6,9 @@
 
 -Importe O Projeto no Sprint Tool Suite através de um repositorio git!
 
--Compie de (<?xml) até (</project>) e cole no novo pom gerado ao seu projeto !
+-Volte ao Redmi e clique na opção Display the source blob para copiar as dependências do projeto
 
-
-
+-Compie de (<?xml) até (</project>) e substitua as informações do pom.xml geradas no seu projeto !
 
 
 
