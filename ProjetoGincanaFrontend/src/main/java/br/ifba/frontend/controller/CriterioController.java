@@ -2,9 +2,6 @@ package br.ifba.frontend.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,7 +54,7 @@ public class CriterioController {
 	@GetMapping("/editar_form/{id}")
 	public String editar_form(@PathVariable("id") Integer id, Model model) {
 		CriterioModel tm = this.criterioService.getCriterio(id);
-		model.addAttribute("id", tm.getId());
+		model.addAttribute("id_Criterio", tm.getId_Criterio());
 		model.addAttribute("nome_Criterio", tm.getNome_Criterio());
 		model.addAttribute("pontuacao_min_max", tm.getPontuacao_min_Criterio());
 		model.addAttribute("getPontuacao_max_Criterio", tm.getPontuacao_max_Criterio());
@@ -67,7 +64,7 @@ public class CriterioController {
 	
 	@PostMapping("/editar")
 	public String editar(@ModelAttribute CriterioModel criterioModel, Model model) {
-		CriterioModel tm = this.criterioService.getCriterio(criterioModel.getId());
+		CriterioModel tm = this.criterioService.getCriterio(criterioModel.getId_Criterio());
 		tm.setNome_Criterio(criterioModel.getNome_Criterio());
 		tm.setPontuacao_min_Criterio(criterioModel.getPontuacao_min_Criterio());
 		tm.setPontuacao_max_Criterio(criterioModel.getPontuacao_max_Criterio());

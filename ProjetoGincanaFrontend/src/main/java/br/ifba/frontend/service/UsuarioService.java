@@ -27,8 +27,8 @@ public class UsuarioService {
 											.retrieve()
 											.bodyToMono(UsuarioModel.class);
 		
-		UsuarioModel tm = usuarioModel.block();
-		return tm;
+		UsuarioModel um = usuarioModel.block();
+		return um;
 	}
 	
 	public List<UsuarioModel> getUsuarios() {
@@ -40,8 +40,8 @@ public class UsuarioService {
 											.bodyToMono(UsuarioModel[].class);
 		
 		List<UsuarioModel> list = new ArrayList<UsuarioModel>();
-		UsuarioModel[] tm = usuarioModel.block();
-		for (UsuarioModel usuarioModel2 : tm) {
+		UsuarioModel[] um = usuarioModel.block();
+		for (UsuarioModel usuarioModel2 : um) {
 			list.add(usuarioModel2);
 		}
 		

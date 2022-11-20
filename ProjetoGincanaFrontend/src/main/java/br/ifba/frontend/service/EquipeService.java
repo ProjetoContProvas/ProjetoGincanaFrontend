@@ -15,6 +15,7 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class EquipeService {
+	
 	@Autowired
 	private WebClient webClient;
 
@@ -23,8 +24,8 @@ public class EquipeService {
 		Mono<EquipeModel> equipeModel = this.webClient.method(HttpMethod.GET).uri("equipe/{id}", id).retrieve()
 				.bodyToMono(EquipeModel.class);
 
-		EquipeModel tm = equipeModel.block();
-		return tm;
+		EquipeModel em = equipeModel.block();
+		return em;
 	}
 
 	public List<EquipeModel> getEquipes() {
@@ -33,8 +34,8 @@ public class EquipeService {
 				.bodyToMono(EquipeModel[].class);
 
 		List<EquipeModel> list = new ArrayList<EquipeModel>();
-		EquipeModel[] tm = equipeModel.block();
-		for (EquipeModel equipeModel2 : tm) {
+		EquipeModel[] em = equipeModel.block();
+		for (EquipeModel equipeModel2 : em) {
 			list.add(equipeModel2);
 		}
 

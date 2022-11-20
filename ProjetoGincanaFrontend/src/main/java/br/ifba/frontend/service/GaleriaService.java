@@ -27,8 +27,8 @@ public class GaleriaService {
 											.retrieve()
 											.bodyToMono(GaleriaModel.class);
 		
-		GaleriaModel tm = galeriaModel.block();
-		return tm;
+		GaleriaModel gm = galeriaModel.block();
+		return gm;
 	}
 	
 	public List<GaleriaModel> getGalerias() {
@@ -40,8 +40,8 @@ public class GaleriaService {
 											.bodyToMono(GaleriaModel[].class);
 		
 		List<GaleriaModel> list = new ArrayList<GaleriaModel>();
-		GaleriaModel[] tm = galeriaModel.block();
-		for (GaleriaModel galeriaModel2 : tm) {
+		GaleriaModel[] gm = galeriaModel.block();
+		for (GaleriaModel galeriaModel2 : gm) {
 			list.add(galeriaModel2);
 		}
 		

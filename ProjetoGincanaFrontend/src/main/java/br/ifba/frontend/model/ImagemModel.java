@@ -2,37 +2,43 @@ package br.ifba.frontend.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class ImagemModel {
 	private Integer id_Imagem;
 	private String URL_Imagem;
-	private Integer Galeria_id_Galeria;
-	
+	private GaleriaModel galeria;
+
 	public Integer getId_Imagem() {
 		return id_Imagem;
 	}
+
 	public void setId_Imagem(Integer id_Imagem) {
 		this.id_Imagem = id_Imagem;
 	}
+
 	public String getURL_Imagem() {
 		return URL_Imagem;
 	}
+
 	public void setURL_Imagem(String URL_Imagem) {
 		this.URL_Imagem = URL_Imagem;
 	}
-	
-	public Integer getGaleria_id_Galeria() {
-		return Galeria_id_Galeria;
+
+	public GaleriaModel getGaleria() {
+		return galeria;
 	}
-	public void setGaleria_id_Galeria(Integer Galeria_id_Galeria) {
-		this.Galeria_id_Galeria = Galeria_id_Galeria;
+
+	public void setGaleria(GaleriaModel galeria) {
+		this.galeria = galeria;
 	}
+
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return getId_Imagem() + " - " + getURL_Imagem() + " - " + getGaleria_id_Galeria();  
+		return "ImagemModel [id_Imagem=" + id_Imagem + ", URL_Imagem=" + URL_Imagem + ", galeria=" + galeria + "]";
 	}
-}
 
+}

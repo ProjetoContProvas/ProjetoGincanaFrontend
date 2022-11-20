@@ -26,8 +26,8 @@ public class CriterioService {
 											.retrieve()
 											.bodyToMono(CriterioModel.class);
 		
-		CriterioModel tm = criterioModel.block();
-		return tm;
+		CriterioModel cm = criterioModel.block();
+		return cm;
 	}
 	
 	public List<CriterioModel> getCriterios() {
@@ -39,8 +39,8 @@ public class CriterioService {
 											.bodyToMono(CriterioModel[].class);
 		
 		List<CriterioModel> list = new ArrayList<CriterioModel>();
-		CriterioModel[] tm = criterioModel.block();
-		for (CriterioModel criterioModel2 : tm) {
+		CriterioModel[] cm = criterioModel.block();
+		for (CriterioModel criterioModel2 : cm) {
 			list.add(criterioModel2);
 		}
 		
@@ -75,7 +75,7 @@ public class CriterioService {
 		System.out.println("update: " + criterioModel);
 		Mono<CriterioModel> criterio = this.webClient
 									.method(HttpMethod.PUT)
-									.uri("criterio/{id}", criterioModel.getId())
+									.uri("criterio/{id}", criterioModel.getId_Criterio())
 									.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 									.body(Mono.just(criterioModel), CriterioModel.class)
 									.retrieve()

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import br.ifba.frontend.model.StatusModel;
-import br.ifba.frontend.model.TarefaModel;
 import reactor.core.publisher.Mono;
 
 
