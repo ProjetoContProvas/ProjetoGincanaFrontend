@@ -1,12 +1,12 @@
 # Orientações 
 
--Faça um fork do projeto
+-Faça um fork do projeto !
 
--Importe apenas a branch Master
+-Importe apenas a branch Master!
 
 -Importe O Projeto no Sprint Tool Suite através de um repositorio git!
 
--Volte ao Redmi -> clique em editar o Arquivo Redmi -> clique na opção Display the source blob para copiar as dependências do projeto
+-Volte ao Redmi -> clique na pasta do arquivo Redmi -> clique na opção 'Display the source blob', para copiar as dependências do projeto!
 
 -Compie de (<?xml) até (/project>) e substitua as informações do pom.xml geradas no seu projeto !
 
