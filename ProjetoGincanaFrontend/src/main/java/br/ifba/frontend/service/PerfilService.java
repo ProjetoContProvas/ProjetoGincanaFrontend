@@ -27,8 +27,8 @@ public class PerfilService {
 											.retrieve()
 											.bodyToMono(PerfilModel.class);
 		
-		PerfilModel tm = perfilModel.block();
-		return tm;
+		PerfilModel pm = perfilModel.block();
+		return pm;
 	}
 	
 	public List<PerfilModel> getPerfis() {
@@ -40,8 +40,8 @@ public class PerfilService {
 											.bodyToMono(PerfilModel[].class);
 		
 		List<PerfilModel> list = new ArrayList<PerfilModel>();
-		PerfilModel[] tm = perfilModel.block();
-		for (PerfilModel perfilModel2 : tm) {
+		PerfilModel[] pm = perfilModel.block();
+		for (PerfilModel perfilModel2 : pm) {
 			list.add(perfilModel2);
 		}
 		

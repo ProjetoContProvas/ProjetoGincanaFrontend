@@ -1,6 +1,5 @@
 package br.ifba.frontend.controller;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.ifba.frontend.model.StatusModel;
 import br.ifba.frontend.service.StatusService;
-import br.ifba.frontend.service.TarefaService;
 
 @Controller
 @RequestMapping("/status")

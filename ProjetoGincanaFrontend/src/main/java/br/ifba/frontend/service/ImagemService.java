@@ -21,14 +21,14 @@ public class ImagemService {
 	
 	public ImagemModel getImagem(Integer id) {
 		
-		Mono<ImagemModel> objModel = this.webClient
+		Mono<ImagemModel> imagemModel = this.webClient
 											.method(HttpMethod.GET)
 											.uri("status/{id}", id)
 											.retrieve()
 											.bodyToMono(ImagemModel.class);
 		
-		ImagemModel sm = objModel.block();
-		return sm;
+		ImagemModel im = imagemModel.block();
+		return im;
 	}
 	
 	public List<ImagemModel> getListImagem() {
@@ -40,9 +40,9 @@ public class ImagemService {
 											.bodyToMono(ImagemModel[].class);
 		
 		List<ImagemModel> list = new ArrayList<ImagemModel>();
-		ImagemModel[] sm = objModel.block();
+		ImagemModel[] im = objModel.block();
 		
-		for (ImagemModel status : sm) {
+		for (ImagemModel status : im) {
 			list.add(status);
 		}
 		

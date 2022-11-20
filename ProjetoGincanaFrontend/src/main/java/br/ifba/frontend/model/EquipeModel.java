@@ -1,57 +1,64 @@
 package br.ifba.frontend.model;
 
-import java.sql.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class EquipeModel {
-	
-	private Integer id_Equipe ;
-	private String nome_Equipe ;
-	private Integer id_Gincana ;
-	private Integer id_Curso ;
-	private Integer id_Usuario ;
-	
+
+	private Integer id_Equipe;
+	private String nome_Equipe;
+	private GincanaModel gincana;
+	private CursoModel curso;
+	private UsuarioModel usuario;
+
 	public Integer getId_Equipe() {
 		return id_Equipe;
 	}
+
 	public void setId_Equipe(Integer id_Equipe) {
 		this.id_Equipe = id_Equipe;
 	}
+
 	public String getNome_Equipe() {
 		return nome_Equipe;
 	}
+
 	public void setNome_Equipe(String nome_Equipe) {
 		this.nome_Equipe = nome_Equipe;
 	}
-	public Integer getId_Gincana() {
-		return id_Gincana;
+
+	public GincanaModel getGincana() {
+		return gincana;
 	}
-	public void setId_Gincana(Integer id_Gincana) {
-		this.id_Gincana = id_Gincana;
+
+	public void setGincana(GincanaModel gincana) {
+		this.gincana = gincana;
 	}
-	public Integer getId_Curso() {
-		return id_Curso;
+
+	public CursoModel getCurso() {
+		return curso;
 	}
-	public void setId_Curso(Integer id_Curso) {
-		this.id_Curso = id_Curso;
+
+	public void setCurso(CursoModel curso) {
+		this.curso = curso;
 	}
-	public Integer getId_Usuario() {
-		return id_Usuario;
+
+	public UsuarioModel getUsuario() {
+		return usuario;
 	}
-	public void setId_Usuario(Integer id_Usuario) {
-		this.id_Usuario = id_Usuario;
+
+	public void setUsuario(UsuarioModel usuario) {
+		this.usuario = usuario;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return "EquipeModel [id_Equipe=" + id_Equipe + ", nome_Equipe=" + nome_Equipe + ", id_Gincana=" + id_Gincana
-				+ ", id_Curso=" + id_Curso + ", id_Usuario=" + id_Usuario + "]";
+		return "EquipeModel [id_Equipe=" + id_Equipe + ", nome_Equipe=" + nome_Equipe + ", gincana=" + gincana
+				+ ", curso=" + curso + ", usuario=" + usuario + "]";
 	}
-	
-	
+
 }

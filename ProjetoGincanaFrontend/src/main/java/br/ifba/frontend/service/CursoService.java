@@ -27,8 +27,8 @@ public class CursoService {
 											.retrieve()
 											.bodyToMono(CursoModel.class);
 		
-		CursoModel tm = CursoModel.block();
-		return tm;
+		CursoModel cm = CursoModel.block();
+		return cm;
 	}
 	
 	public List<CursoModel> getCursos() {
@@ -40,8 +40,8 @@ public class CursoService {
 											.bodyToMono(CursoModel[].class);
 		
 		List<CursoModel> list = new ArrayList<CursoModel>();
-		CursoModel[] tm = CursoModel.block();
-		for (CursoModel CursoModel2 : tm) {
+		CursoModel[] cm = CursoModel.block();
+		for (CursoModel CursoModel2 : cm) {
 			list.add(CursoModel2);
 		}
 		
@@ -61,14 +61,14 @@ public class CursoService {
 	}
 	
 	public Boolean insert(CursoModel cursoModel) {
-		Mono<Boolean> tarefa = this.webClient
+		Mono<Boolean> curso = this.webClient
 									.method(HttpMethod.POST)
 									.uri("curso/")
 									.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 									.body(Mono.just(cursoModel), CursoModel.class)
 									.retrieve()
 									.bodyToMono(Boolean.class);
-		Boolean result = tarefa.block();
+		Boolean result = curso.block();
 		return result;
 	}
 	

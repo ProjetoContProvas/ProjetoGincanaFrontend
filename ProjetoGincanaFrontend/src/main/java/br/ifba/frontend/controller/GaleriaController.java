@@ -40,7 +40,7 @@ public class GaleriaController {
 		System.out.println("insert: " + galeriaModel.getNome_Galeria());
 		GaleriaModel tm = new GaleriaModel();
 		tm.setNome_Galeria(galeriaModel.getNome_Galeria());
-		tm.setDescricao_Gincana(galeriaModel.getDescricao_Gincana());
+		tm.setDescricao_Galeria(galeriaModel.getDescricao_Galeria());
 		galeriaService.insert(tm);
 		return "redirect:/galeria/";
 	}
@@ -56,7 +56,7 @@ public class GaleriaController {
 		GaleriaModel tm = this.galeriaService.getGaleria(id);
 		model.addAttribute("id", tm.getId());
 		model.addAttribute("nome_Galeria", tm.getNome_Galeria());
-		model.addAttribute("descricao_Gincana", tm.getDescricao_Gincana());
+		model.addAttribute("descricao_Galeria", tm.getDescricao_Galeria());
 		model.addAttribute("readonly", true);
 		return "galeria/editar_form";
 	}
@@ -65,7 +65,7 @@ public class GaleriaController {
 	public String editar(@ModelAttribute GaleriaModel galeriaModel, Model model) {
 		GaleriaModel tm = this.galeriaService.getGaleria(galeriaModel.getId());
 		tm.setNome_Galeria(galeriaModel.getNome_Galeria());
-		tm.setDescricao_Gincana(galeriaModel.getDescricao_Gincana());
+		tm.setDescricao_Galeria(galeriaModel.getDescricao_Galeria());
 		galeriaService.update(tm);
 		return "redirect:/galeria/";
 	}
