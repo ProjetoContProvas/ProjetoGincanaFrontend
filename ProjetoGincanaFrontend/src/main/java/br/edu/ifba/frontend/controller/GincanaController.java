@@ -28,6 +28,7 @@ public class GincanaController {
 	public String index(Model model) {
 		System.out.println("gincanas_lista - init");
 		List<GincanaModel> list = this.gincanaService.getGincanas();
+		System.out.println(list);
 		model.addAttribute("gincanas", list);
 		return "gincana/index";
 	}
@@ -45,7 +46,7 @@ public class GincanaController {
 		gm.setDescricao_Gincana(gincanaModel.getDescricao_Gincana());
 		gm.setData_inicio_Gincana(new Date(System.currentTimeMillis()));
 		gm.setData_fim_Gincana(new Date(System.currentTimeMillis()));
-		gm.setStatus(gincanaModel.getStatus());
+		gm.setStatusModel(gincanaModel.getStatusModel());
 		gincanaService.insert(gm);
 		return "redirect:/gincana/";
 	}
@@ -74,7 +75,7 @@ public class GincanaController {
 		gm.setDescricao_Gincana(gincanaModel.getDescricao_Gincana());
 		gm.setData_inicio_Gincana(gincanaModel.getData_inicio_Gincana());
 		gm.setData_fim_Gincana(gincanaModel.getData_fim_Gincana());
-		gm.setStatus(gincanaModel.getStatus());
+		gm.setStatusModel(gincanaModel.getStatusModel());
 		gincanaService.update(gm);
 		return "redirect:/tarefa/";
 	}

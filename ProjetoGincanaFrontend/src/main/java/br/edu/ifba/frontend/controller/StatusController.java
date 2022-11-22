@@ -36,9 +36,9 @@ public class StatusController {
 	
 	@PostMapping("/adicionar")
 	public String adicionar(@ModelAttribute StatusModel statusModel, Model model) {
-		System.out.println("insert: " + statusModel.getSituacao_status());
+		System.out.println("insert: " + statusModel.getSituacao_Status());
 		StatusModel sm = new StatusModel();
-		sm.setSituacao_status(statusModel.getSituacao_status());
+		sm.setSituacao_Status(statusModel.getSituacao_Status());
 		statusService.insert(sm);
 		return "redirect:/status/";
 	}
@@ -53,7 +53,7 @@ public class StatusController {
 	public String editar_form(@PathVariable("id") Integer id, Model model) {
 		StatusModel sm = this.statusService.getStatus(id);
 		model.addAttribute("id", sm.getId_status());
-		model.addAttribute("situacao", sm.getSituacao_status());
+		model.addAttribute("situacao", sm.getSituacao_Status());
 		model.addAttribute("readonly", true);
 		return "status/editar_form";
 	}
@@ -61,7 +61,7 @@ public class StatusController {
 	@PostMapping("/editar")
 	public String editar(@ModelAttribute StatusModel statusModel, Model model) {
 		StatusModel sm = this.statusService.getStatus(statusModel.getId_status());
-		sm.setSituacao_status( statusModel.getSituacao_status());
+		sm.setSituacao_Status( statusModel.getSituacao_Status());
 		statusService.update(sm);
 		return "redirect:/status/";
 	}
