@@ -9,7 +9,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StatusModel {
 	private Integer id_status;
-	private String situacao_status;
+	private String situacao_Status;
+
+	public StatusModel() {
+		super();
+	}
+
+	public StatusModel(Integer id_status, String situacao_Status) {
+		super();
+		this.id_status = id_status;
+		this.situacao_Status = situacao_Status;
+	}
 
 	public Integer getId_status() {
 		return id_status;
@@ -19,17 +29,17 @@ public class StatusModel {
 		this.id_status = id_status;
 	}
 
-	public String getSituacao_status() {
-		return situacao_status;
+	public String getSituacao_Status() {
+		return situacao_Status;
 	}
 
-	public void setSituacao_status(String situacao_status) {
-		this.situacao_status = situacao_status;
+	public void setSituacao_Status(String situacao_Status) {
+		this.situacao_Status = situacao_Status;
 	}
 
 	@Override
 	public String toString() {
-		return "StatusModel [id_status=" + id_status + ", situacao_status=" + situacao_status + "]";
+		return "StatusModel [id_status=" + id_status + ", situacao_Status=" + situacao_Status + "]";
 	}
 
 }
