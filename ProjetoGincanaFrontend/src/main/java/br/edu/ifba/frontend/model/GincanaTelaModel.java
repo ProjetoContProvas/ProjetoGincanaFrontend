@@ -1,4 +1,4 @@
-package br.ifba.frontend.model;
+package br.edu.ifba.frontend.model;
 
 import java.sql.Date;
 

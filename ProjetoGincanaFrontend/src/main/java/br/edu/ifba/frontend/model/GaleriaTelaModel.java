@@ -1,4 +1,4 @@
-package br.ifba.frontend.model;
+package br.edu.ifba.frontend.model;
 
 public class GaleriaTelaModel {
 	private int id_Galeria;
