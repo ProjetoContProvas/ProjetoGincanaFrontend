@@ -52,7 +52,7 @@ public class StatusController {
 	@GetMapping("/editar_form/{id}")
 	public String editar_form(@PathVariable("id") Integer id, Model model) {
 		StatusModel sm = this.statusService.getStatus(id);
-		model.addAttribute("id", sm.getId_status());
+		model.addAttribute("id", sm.getId_Status());
 		model.addAttribute("situacao", sm.getSituacao_Status());
 		model.addAttribute("readonly", true);
 		return "status/editar_form";
@@ -60,7 +60,7 @@ public class StatusController {
 	
 	@PostMapping("/editar")
 	public String editar(@ModelAttribute StatusModel statusModel, Model model) {
-		StatusModel sm = this.statusService.getStatus(statusModel.getId_status());
+		StatusModel sm = this.statusService.getStatus(statusModel.getId_Status());
 		sm.setSituacao_Status( statusModel.getSituacao_Status());
 		statusService.update(sm);
 		return "redirect:/status/";
