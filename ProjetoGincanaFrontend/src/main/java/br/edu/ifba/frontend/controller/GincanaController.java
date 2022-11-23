@@ -65,7 +65,7 @@ public class GincanaController {
 		model.addAttribute("descricao_Gincana", gm.getData_inicio_Gincana());
 		model.addAttribute("data_inicio_Gincana", gm.getData_fim_Gincana());
 		model.addAttribute("readonly", true);
-		return "tarefa/editar_form";
+		return "gincana/editar_form";
 	}
 	
 	@PostMapping("/editar")
@@ -77,7 +77,7 @@ public class GincanaController {
 		gm.setData_fim_Gincana(gincanaModel.getData_fim_Gincana());
 		gm.setStatusModel(gincanaModel.getStatusModel());
 		gincanaService.update(gm);
-		return "redirect:/tarefa/";
+		return "redirect:/gincana/";
 	}
 	
 	/*@PostMapping("/editar_status")
