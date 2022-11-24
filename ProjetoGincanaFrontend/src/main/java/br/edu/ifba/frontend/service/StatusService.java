@@ -76,7 +76,7 @@ public class StatusService {
 		System.out.println("update: " + statusModel);
 		Mono<StatusModel> status = this.webClient
 									.method(HttpMethod.PUT)
-									.uri("status/{id}", statusModel.getId_status())
+									.uri("status/{id}", statusModel.getId_Status())
 									.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 									.body(Mono.just(statusModel), StatusModel.class)
 									.retrieve()
