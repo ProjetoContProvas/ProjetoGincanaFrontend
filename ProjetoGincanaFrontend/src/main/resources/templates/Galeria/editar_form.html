@@ -14,9 +14,9 @@
 					<div class="media-body">
 						<ul class="breadcrumb">
 							<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
-							<li><a href="/status/">Cadastros / Status</a></li>
+							<li><a href="/galeria/">Cadastros / Galeria</a></li>
 						</ul>
-						<h4>Editar Status</h4>
+						<h4>Editar Galeria</h4>
 					</div>
 				</div><!-- media -->
 			</div><!-- pageheader -->
@@ -26,12 +26,12 @@
 				<div class="row">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h4 class="panel-title">Status</h4>
-							<p>Tela de edição de status</p>
+							<h4 class="panel-title">Galeria</h4>
+							<p>Tela de edição de galeria</p>
 						</div><!-- panel-heading -->
 
 
-						<form method="POST" id="basicForm" th:action="@{/status/editar}">
+						<form method="POST" id="basicForm" th:action="@{/galeria/editar}">
 							<div class="panel-body">
 								<div class="row">
 									<div class="form-group">
@@ -39,11 +39,22 @@
 												class="asterisk">*</span></label>
 										<div class="col-sm-9">
 											<input hidden type="textarea" id="id" name="id" th:value="${id}" />
-											<input type="textarea" id="situacao_Status" name="situacao_Status" class="form-control"
-												th:value="${nome}" placeholder="nome do status" required />
+											<input type="textarea" id="nome_Galeria" name="nome_Galeria" class="form-control"
+												th:value="${nome}" placeholder="nome da galeria" required />
 										</div>
 									</div><!-- form-group -->
-																	
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Descrição<span
+												class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input hidden type="textarea" id="id" name="id" th:value="${id}" />
+											<input type="textarea" id="descricao_Galeria" name="descricao_Galeria" class="form-control"
+												th:value="${descricao}" placeholder="descrição da galeria" required />
+										</div>
+									</div><!-- form-group -->
+									
+
 								</div><!-- row -->
 							</div><!-- panel-body -->
 							<div class="panel-footer">
