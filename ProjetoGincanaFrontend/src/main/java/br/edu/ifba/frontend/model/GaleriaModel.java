@@ -1,12 +1,8 @@
 package br.edu.ifba.frontend.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class GaleriaModel {
 
 	private Integer id_Galeria;
@@ -14,12 +10,24 @@ public class GaleriaModel {
 	private String descricao_Galeria;
 	private GincanaModel gincana;
 
-	public Integer getId() {
+	public GaleriaModel() {
+		super();
+	}
+
+	public GaleriaModel(Integer id_Galeria, String nome_Galeria, String descricao_Galeria, GincanaModel gincana) {
+		super();
+		this.id_Galeria = id_Galeria;
+		this.nome_Galeria = nome_Galeria;
+		this.descricao_Galeria = descricao_Galeria;
+		this.gincana = gincana;
+	}
+
+	public Integer getId_Galeria() {
 		return id_Galeria;
 	}
 
-	public void setId(Integer id) {
-		this.id_Galeria = id;
+	public void setId_Galeria(Integer id_Galeria) {
+		this.id_Galeria = id_Galeria;
 	}
 
 	public String getNome_Galeria() {
@@ -48,8 +56,8 @@ public class GaleriaModel {
 
 	@Override
 	public String toString() {
-		return "GaleriaModel [id=" + id_Galeria + ", nome_Galeria=" + nome_Galeria + ", descricao_Galeria=" + descricao_Galeria
-				+ ", gincana=" + gincana + "]";
+		return "GaleriaModel [id_Galeria=" + id_Galeria + ", nome_Galeria=" + nome_Galeria + ", descricao_Galeria="
+				+ descricao_Galeria + ", gincana=" + gincana + "]";
 	}
 
 }

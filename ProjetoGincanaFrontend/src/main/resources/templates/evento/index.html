@@ -42,6 +42,8 @@
 											<th>Data do Evento</th>
 											<th>Horario do Evento</th>
 											<th>Local do Evento</th>
+											<th>Gincana</th>
+											<th>Status</th>
 											<th></th>
 										</tr>
 									</thead>
@@ -54,6 +56,8 @@
 											<td th:text="${evento.data_Evento}"></td>
 											<td th:text="${evento.horario_Evento}"></td>
 											<td th:text="${evento.local_Evento}"></td>
+											<td th:text="${evento.gincana.nome_Gincana}"></td>
+											<td th:text="${evento.status.situacao_Status}"></td>
 											<td>
 												<a th:href="@{/evento/editar_form/{id_Evento}(id_Evento=${evento.id_Evento})}"
 													class="btn btn-success"><i class="fa fa-pencil white"></i></a>

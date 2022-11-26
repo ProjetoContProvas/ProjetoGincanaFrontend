@@ -31,7 +31,7 @@ public class StatusService {
 		return sm;
 	}
 	
-	public List<StatusModel> getStatus() {
+	public List<StatusModel> getListStatus() {
 		
 		Mono<StatusModel[]> statusModel = this.webClient
 											.method(HttpMethod.GET)

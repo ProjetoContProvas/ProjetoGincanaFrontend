@@ -14,7 +14,9 @@
 						<div class="media-body">
 							<ul class="breadcrumb">
 								<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+
 								<li><a href="/equipe/">Cadastros / Equipes</a></li>
+
 							</ul>
 							<h4>Lista de Equipes</h4>
 						</div>
@@ -38,13 +40,15 @@
 										<tr>
 											<th>#</th>
 											<th>Nome</th>
-											<th></th>
+											<th>Curso</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:each="equipe : ${equipes}">
-											<td th:text="${equipe.id_Equipe}"></td>
+									 <tr th:each="equipe : ${equipes}">
+										<td th:text="${equipe.id_Equipe}"></td>
 											<td th:text="${equipe.nome_Equipe}"></td>
+											<td th:text="${equipe.curso.nome_Curso}"></td>
+											
 											<td>
 												<a th:href="@{/equipe/editar_form/{id}(id=${equipe.id_Equipe})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
 												<a th:href="@{/equipe/deletar/{id}(id=${equipe.id_Equipe})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>

@@ -76,7 +76,7 @@ public class GaleriaService {
 		System.out.println("update: " + galeriaModel);
 		Mono<GaleriaModel> galeria = this.webClient
 									.method(HttpMethod.PUT)
-									.uri("galeria/{id}", galeriaModel.getId())
+									.uri("galeria/{id}", galeriaModel.getId_Galeria())
 									.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 									.body(Mono.just(galeriaModel), GaleriaModel.class)
 									.retrieve()

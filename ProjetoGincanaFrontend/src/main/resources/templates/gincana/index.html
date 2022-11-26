@@ -21,7 +21,7 @@
 					</div><!-- media -->
 				</div><!-- pageheader -->
 
-
+		<div class="contentpanel">
 			<div class="contentpanel">
 				<div class="row">
 					<div class="panel panel-default">
@@ -30,7 +30,7 @@
 							<p>Tela para listagem das gincanas</p>
 						</div><!-- panel-heading -->
 
-						<div class="panel-body nopadding">
+						<div  class="panel-body nopadding">
 							<a href="/gincana/adicionar_form" class="btn btn-primary" style="margin: 10px;">Novo</a>
 							<div class="table-responsive">
 								<table class="table table-hidaction table-hover mb30">
@@ -41,7 +41,7 @@
 											<th>Descricao</th>
 											<th>Data de Inicio</th>
 											<th>Data do fim</th>
-									<!--		<th>Status</th>  -->
+										    <th>Status</th> 
 										</tr>
 									</thead>
 									<tbody>
@@ -51,7 +51,7 @@
 											<td th:text="${gincana.descricao_Gincana}"></td>
 											<td th:text="${gincana.data_inicio_Gincana}"></td>
 											<td th:text="${gincana.data_fim_Gincana}"></td>
-									<!--		<td th:text="${gincana.statusModel.situacao_Status}"></td> -->
+											<td th:text="${gincana.status.situacao_Status}"></td> 
 											
 											<td>
 											
@@ -73,7 +73,7 @@
 				</div>
 
 			</div><!-- contentpanel -->
-
+</div>
 	</section>
 
 <div th:replace="comum/down"></div>

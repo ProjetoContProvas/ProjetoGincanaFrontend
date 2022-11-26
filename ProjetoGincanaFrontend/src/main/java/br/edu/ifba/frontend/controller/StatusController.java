@@ -24,7 +24,7 @@ public class StatusController {
 	@GetMapping("/")
 	public String index(Model model) {
 		System.out.println("status_lista - init");
-		List<StatusModel> list = this.statusService.getStatus();
+		List<StatusModel> list = this.statusService.getListStatus();
 		model.addAttribute("status", list);
 		return "status/index";
 	}

@@ -46,7 +46,7 @@ public class GincanaController {
 		gm.setDescricao_Gincana(gincanaModel.getDescricao_Gincana());
 		gm.setData_inicio_Gincana(new Date(System.currentTimeMillis()));
 		gm.setData_fim_Gincana(new Date(System.currentTimeMillis()));
-		gm.setStatusModel(gincanaModel.getStatusModel());
+		gm.setStatus(gincanaModel.getStatus());
 		gincanaService.insert(gm);
 		return "redirect:/gincana/";
 	}
@@ -75,7 +75,7 @@ public class GincanaController {
 		gm.setDescricao_Gincana(gincanaModel.getDescricao_Gincana());
 		gm.setData_inicio_Gincana(gincanaModel.getData_inicio_Gincana());
 		gm.setData_fim_Gincana(gincanaModel.getData_fim_Gincana());
-		gm.setStatusModel(gincanaModel.getStatusModel());
+		gm.setStatus(gincanaModel.getStatus());
 		gincanaService.update(gm);
 		return "redirect:/gincana/";
 	}
