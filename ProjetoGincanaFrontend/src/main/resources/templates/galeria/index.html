@@ -39,18 +39,22 @@
 											<th>#</th>
 											<th>Nome</th>
 											<th>Descricao</th>
-										     <th></th> 
+										    <th>Gincana</th>
+										    <th></th>
+										     
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:each="galeria : ${galerias}">
-										<td th:text="${galeria.id_Galeria}"></td>
-										<td th:text="${galeria.nome_Galeria}"></td>
-											<td>
+										<tr th:each="glr : ${galeria}">
+										<td th:text="${glr.id_Galeria}"></td>
+									    <td th:text="${glr.nome_Galeria}"></td>
+										<td th:text="${glr.descricao_Galeria}"></td>
+										<td th:text="${glr.gincana.nome_Gincana}"></td> 
+										<td>
 											
-												<a th:href="@{/galeria/editar_form/{id}(id=${galeria.id_Galeria})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
-												<a th:href="@{/galeria/deletar/{id}(id=${galeria.id_Galeria})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
-											</td>
+											<a th:href="@{/galeria/editar_form/{id}(id=${glr.id_Galeria})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+											<a th:href="@{/galeria/deletar/{id}(id=${glr.id_Galeria})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+										</td>
 										</tr>
 									</tbody>
 								</table>

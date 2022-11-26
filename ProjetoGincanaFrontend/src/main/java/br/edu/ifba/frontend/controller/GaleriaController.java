@@ -54,7 +54,7 @@ public class GaleriaController {
 	@GetMapping("/editar_form/{id}")
 	public String editar_form(@PathVariable("id") Integer id, Model model) {
 		GaleriaModel tm = this.galeriaService.getGaleria(id);
-		model.addAttribute("id", tm.getId());
+		model.addAttribute("id", tm.getId_Galeria());
 		model.addAttribute("nome_Galeria", tm.getNome_Galeria());
 		model.addAttribute("descricao_Galeria", tm.getDescricao_Galeria());
 		model.addAttribute("readonly", true);
@@ -63,7 +63,7 @@ public class GaleriaController {
 	
 	@PostMapping("/editar")
 	public String editar(@ModelAttribute GaleriaModel galeriaModel, Model model) {
-		GaleriaModel tm = this.galeriaService.getGaleria(galeriaModel.getId());
+		GaleriaModel tm = this.galeriaService.getGaleria(galeriaModel.getId_Galeria());
 		tm.setNome_Galeria(galeriaModel.getNome_Galeria());
 		tm.setDescricao_Galeria(galeriaModel.getDescricao_Galeria());
 		galeriaService.update(tm);
