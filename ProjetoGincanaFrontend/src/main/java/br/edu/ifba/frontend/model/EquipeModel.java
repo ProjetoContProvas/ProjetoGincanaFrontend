@@ -15,6 +15,20 @@ public class EquipeModel {
 	private CursoModel curso;
 	private UsuarioModel usuario;
 
+	public EquipeModel() {
+		super();
+	}
+
+	public EquipeModel(Integer id_Equipe, String nome_Equipe, GincanaModel gincana, CursoModel curso,
+			UsuarioModel usuario) {
+		super();
+		this.id_Equipe = id_Equipe;
+		this.nome_Equipe = nome_Equipe;
+		this.gincana = gincana;
+		this.curso = curso;
+		this.usuario = usuario;
+	}
+
 	public Integer getId_Equipe() {
 		return id_Equipe;
 	}

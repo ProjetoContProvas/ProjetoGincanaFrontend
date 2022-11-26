@@ -14,7 +14,7 @@
 						<div class="media-body">
 							<ul class="breadcrumb">
 								<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
-								<li><a href="/statuslist">Cadastros / Status</a></li>
+								<li><a href="/status/">Status</a></li>
 							</ul>
 							<h4>Lista de Status</h4>
 						</div>
@@ -26,7 +26,7 @@
 				<div class="row">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h4 class="panel-title">Status</h4>
+							<h4 class="panel-title">Lista de Status</h4>
 							<p>Tela para listagem dos status.</p>
 						</div><!-- panel-heading -->
 
@@ -37,21 +37,18 @@
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Status</th>
-									<!--		<th>Status</th>  -->
+											<th>Descrição</th>
+											<th></th>
 										</tr>
-										
 									</thead>
+	
 									<tbody>
-										<tr th:each="statuslist : ${status}">
-										<td th:text="${statuslist.id_Status}"></td>
-										<td th:text="${statuslist.situacao_Status}"></td>
-								<!--		<td th:text="${statuslist.statusModel.situacao_Status}"></td> -->
-											
+										<tr th:each="listStatus : ${status}">
+										<td th:text="${listStatus.id_Status}"></td>
+											<td th:text="${listStatus.situacao_Status}"></td>
 											<td>
-											
-												<a th:href="@{/status/editar_form/{id}(id=${statuslist.id_Status})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
-												<a th:href="@{/status/deletar/{id}(id=${statuslist.id_Status})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+												<a th:href="@{/status/editar_form/{id}(id=${listStatus.id_Status})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+												<a th:href="@{/status/deletar/{id}(id=${listStatus.id_Status})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
 											</td>
 										</tr>
 									</tbody>

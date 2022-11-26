@@ -37,4 +37,11 @@ public class StatusModel {
 		this.situacao_Status = situacao_Status;
 	}
 
+	@Override
+	public String toString() {
+		return "StatusModel [id_Status=" + id_Status + ", situacao_Status=" + situacao_Status + "]";
+	}
+	
+	
+
 }

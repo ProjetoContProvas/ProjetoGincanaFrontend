@@ -14,9 +14,9 @@
 						<div class="media-body">
 							<ul class="breadcrumb">
 								<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
-								<li><a href="/gincanas">Cadastros / Gincanas</a></li>
+								<li><a href="/galerias">Cadastros / Galerias</a></li>
 							</ul>
-							<h4>Lista de Gincanas</h4>
+							<h4>Lista de Galerias</h4>
 						</div>
 					</div><!-- media -->
 				</div><!-- pageheader -->
@@ -26,12 +26,12 @@
 				<div class="row">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h4 class="panel-title">Gincanas</h4>
-							<p>Tela para listagem das gincanas.</p>
+							<h4 class="panel-title">Galerias</h4>
+							<p>Tela para listagem das galerias.</p>
 						</div><!-- panel-heading -->
 
 						<div  class="panel-body nopadding">
-							<a href="/gincana/adicionar_form" class="btn btn-primary" style="margin: 10px;">Novo</a>
+							<a href="/galeria/adicionar_form" class="btn btn-primary" style="margin: 10px;">Novo</a>
 							<div class="table-responsive">
 								<table class="table table-hidaction table-hover mb30">
 									<thead>
@@ -39,24 +39,17 @@
 											<th>#</th>
 											<th>Nome</th>
 											<th>Descricao</th>
-											<th>Data de Inicio</th>
-											<th>Data do fim</th>
-										    <th>Status</th> 
+										     <th></th> 
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:each="gincana : ${gincanas}">
-										<td th:text="${gincana.id_Gincana}"></td>
-											<td th:text="${gincana.nome_Gincana}"></td>
-											<td th:text="${gincana.descricao_Gincana}"></td>
-											<td th:text="${gincana.data_inicio_Gincana}"></td>
-											<td th:text="${gincana.data_fim_Gincana}"></td>
-											<td th:text="${gincana.status.situacao_Status}"></td> 
-											
+										<tr th:each="galeria : ${galerias}">
+										<td th:text="${galeria.id_Galeria}"></td>
+										<td th:text="${galeria.nome_Galeria}"></td>
 											<td>
 											
-												<a th:href="@{/gincana/editar_form/{id}(id=${gincana.id_Gincana})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
-												<a th:href="@{/gincana/deletar/{id}(id=${gincana.id_Gincana})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+												<a th:href="@{/galeria/editar_form/{id}(id=${galeria.id_Galeria})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+												<a th:href="@{/galeria/deletar/{id}(id=${galeria.id_Galeria})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
 											</td>
 										</tr>
 									</tbody>
