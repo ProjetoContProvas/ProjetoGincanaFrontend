@@ -55,12 +55,8 @@ public class HomeController {
 		return "signup";
 	}
 	
-	@GetMapping("/cadastro_livro")
-	public String cadastroLivro(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		String usuario = (String) session.getAttribute("nome");
-		System.out.println(usuario);
-		return "cadastro_livro";
+	@GetMapping("/desenvolvedores")
+	public String desenvolvedores() {
+		return "desenvolvedores";
 	}
-
 }
