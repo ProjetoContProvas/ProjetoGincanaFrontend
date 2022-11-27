@@ -14,13 +14,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.ifba.frontend.model.EventoModel;
+import br.edu.ifba.frontend.model.GincanaModel;
+import br.edu.ifba.frontend.model.StatusModel;
 import br.edu.ifba.frontend.service.EventoService;
+import br.edu.ifba.frontend.service.GincanaService;
+import br.edu.ifba.frontend.service.StatusService;
+import br.edu.ifba.frontend.tela.EventoTelaModel;
 
 @Controller
 @RequestMapping("/evento")
 public class EventoController {
+	
 	@Autowired
 	private EventoService eventoService;
+	
+	@Autowired
+	private GincanaService gincanaService;
+	
+	@Autowired
+	private StatusService statusService;
 	
 	@GetMapping("/")
 	public String index(Model model) {
@@ -31,20 +43,36 @@ public class EventoController {
 	}
 
 	@GetMapping("/adicionar_form")
-	public String adicionar_form() {
+	public String adicionar_form(Model model, Model model2) {
+		GincanaService gincanaService = new GincanaService();
+		List<GincanaModel> list = this.gincanaService.getGincanas();
+		model.addAttribute("list_gincana", list);
+		StatusService statusService = new StatusService();
+		List<StatusModel> list2 = this.statusService.getListStatus();
+		model2.addAttribute("list_status",list2);
 		return "evento/adicionar_form";
 	}
 	
 	@PostMapping("/adicionar")
-	public String adicionar(@ModelAttribute EventoModel eventoModel, Model model) {
-		System.out.println("insert: " + eventoModel.getNome_Evento());
+	public String adicionar(@ModelAttribute EventoTelaModel eventoTelaModel, Model model, Model model2) {
+		System.out.println("insert: " + eventoTelaModel.getNome_Evento());
+		
+		GincanaModel gm = new GincanaModel();
+		gm.setId_Gincana(eventoTelaModel.getGincana());
+		
+		StatusModel sm = new StatusModel();
+		sm.setId_Status(eventoTelaModel.getStatus());
+		
+	
 		EventoModel em = new EventoModel();
-		em.setData_Evento( new Date(System.currentTimeMillis()) );
-		em.setNome_Evento( eventoModel.getNome_Evento());
-		em.setHorario_Evento(eventoModel.getHorario_Evento());
-		em.setLocal_Evento(eventoModel.getLocal_Evento());
-		em.setTipo_Evento(eventoModel.getTipo_Evento());
-		em.setDescricao_Evento(eventoModel.getDescricao_Evento());
+		em.setNome_Evento(eventoTelaModel.getNome_Evento());
+		em.setDescricao_Evento(eventoTelaModel.getDescricao_Evento());
+		em.setTipo_Evento(eventoTelaModel.getTipo_Evento());
+		em.setData_Evento(eventoTelaModel.getData_Evento());
+		em.setHorario_Evento(eventoTelaModel.getHorario_Evento());
+		em.setLocal_Evento(eventoTelaModel.getLocal_Evento());
+		em.setGincana(gm);
+		em.setStatus(sm);
 		eventoService.insert(em);
 		return "redirect:/evento/";
 	}
