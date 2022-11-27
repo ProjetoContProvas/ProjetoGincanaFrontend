@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.ifba.frontend.model.GincanaModel;
+import br.edu.ifba.frontend.model.StatusModel;
 import br.edu.ifba.frontend.service.GincanaService;
+import br.edu.ifba.frontend.service.StatusService;
+import br.edu.ifba.frontend.tela.GincanaTelaModel;
 
 
 @Controller
@@ -23,6 +26,9 @@ public class GincanaController {
 	
 	@Autowired
 	private GincanaService gincanaService;
+	
+	@Autowired
+	private StatusService statusService;
 	
 	@GetMapping("/")
 	public String index(Model model) {
@@ -34,19 +40,24 @@ public class GincanaController {
 	}
 
 	@GetMapping("/adicionar_form")
-	public String adicionar_form() {
+	public String adicionar_form(Model model) {
+		StatusService statusService = new StatusService();
+		List<StatusModel> list = this.statusService.getListStatus();
+		model.addAttribute("list_status",list);
 		return "gincana/adicionar_form";
 	}
 	
 	@PostMapping("/adicionar")
-	public String adicionar(@ModelAttribute GincanaModel gincanaModel, Model model) {
-		System.out.println("insert: " + gincanaModel.getDescricao_Gincana());
+	public String adicionar(@ModelAttribute GincanaTelaModel gincanaTelaModel, Model model) {
+		System.out.println("insert: " + gincanaTelaModel.getDescricao_Gincana());
+		StatusModel sm = new StatusModel();
+		sm.setId_Status(gincanaTelaModel.getStatus());
 		GincanaModel gm = new GincanaModel();
-		gm.setNome_Gincana(gincanaModel.getNome_Gincana());
-		gm.setDescricao_Gincana(gincanaModel.getDescricao_Gincana());
-		gm.setData_inicio_Gincana(new Date(System.currentTimeMillis()));
-		gm.setData_fim_Gincana(new Date(System.currentTimeMillis()));
-		gm.setStatus(gincanaModel.getStatus());
+		gm.setNome_Gincana(gincanaTelaModel.getNome_Gincana());
+		gm.setDescricao_Gincana(gincanaTelaModel.getDescricao_Gincana());
+		gm.setData_inicio_Gincana(gincanaTelaModel.getData_inicio_Gincana());
+		gm.setData_fim_Gincana(gincanaTelaModel.getData_fim_Gincana());
+		gm.setStatus(sm);
 		gincanaService.insert(gm);
 		return "redirect:/gincana/";
 	}
