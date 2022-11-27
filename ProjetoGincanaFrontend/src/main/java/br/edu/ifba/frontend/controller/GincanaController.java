@@ -50,8 +50,11 @@ public class GincanaController {
 	@PostMapping("/adicionar")
 	public String adicionar(@ModelAttribute GincanaTelaModel gincanaTelaModel, Model model) {
 		System.out.println("insert: " + gincanaTelaModel.getDescricao_Gincana());
+		
+		
 		StatusModel sm = new StatusModel();
 		sm.setId_Status(gincanaTelaModel.getStatus());
+		
 		GincanaModel gm = new GincanaModel();
 		gm.setNome_Gincana(gincanaTelaModel.getNome_Gincana());
 		gm.setDescricao_Gincana(gincanaTelaModel.getDescricao_Gincana());
