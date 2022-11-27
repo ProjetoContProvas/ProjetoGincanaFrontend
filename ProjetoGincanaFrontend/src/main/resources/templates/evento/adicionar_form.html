@@ -103,6 +103,28 @@
 										</div>
 										-->
 									</div><!-- form-group -->
+									
+									<div class="form-group">
+							            
+							
+										<label class="col-sm-3 control-label">Gincana<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control"  name="gincana">
+											    <option value="0">Gincana</option>
+											    <option th:each="gincana : ${list_gincana}" th:value="${gincana.id_Gincana}" th:text="${gincana.nome_Gincana}"></option>
+											</select>
+											
+									</div><!-- form-group -->
+									
+										</div>
+										<label class="col-sm-3 control-label">Situação do Status<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control"  name="status">
+											    <option value="0">Selecione uma Opção</option>
+											    <option th:each="status : ${list_status}" th:value="${status.id_Status}" th:text="${status.situacao_Status}"></option>
+											</select>
+											
+									</div><!-- form-group -->
 
 								</div><!-- row -->
 							</div><!-- panel-body -->
