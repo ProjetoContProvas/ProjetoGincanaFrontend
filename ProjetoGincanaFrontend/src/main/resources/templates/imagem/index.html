@@ -38,19 +38,18 @@
 										<tr>
 											<th>#</th>
 											<th>URL</th>											
-										    <th>Galeria</th>
 										    <th></th>
 										     
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:each="img : ${imagem}">
-										<td th:text="$img.id_Imagem}"></td>
-									    <td th:text="${img.URL_Imagem}"></td>									
-										<td th:text="${img.galeria.nome_Galeria}"></td> 
+										<tr th:each="imagem : ${imagens}">
+										<td th:text="${imagem.id_Imagem}"></td>
+									    <td th:text="${imagem.URL_Imagem}"></td>									
+										
 										<td>
 																						
-											<a th:href="@{/imagem/deletar/{id}(id=${img.id_Imagem})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+											<a th:href="@{/imagem/deletar/{id}(id=${imagem.id_Imagem})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
 										</td>
 										</tr>
 									</tbody>

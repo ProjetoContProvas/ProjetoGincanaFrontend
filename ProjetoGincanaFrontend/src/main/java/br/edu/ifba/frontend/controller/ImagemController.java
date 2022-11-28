@@ -23,9 +23,9 @@ public class ImagemController {
 	
 	@GetMapping("/")
 	public String index(Model model) {
-		System.out.println("imagem_lista - init");
 		List<ImagemModel> list = this.service.getListImagem();
-		model.addAttribute("imagem", list);
+		model.addAttribute("imagens", list);
+		System.out.println("00000000000000000000000000000" + model);
 		return "imagem/index";
 	}
 

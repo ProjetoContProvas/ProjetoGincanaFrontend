@@ -35,7 +35,7 @@ public class ImagemService {
 		
 		Mono<ImagemModel[]> objModel = this.webClient
 											.method(HttpMethod.GET)
-											.uri("status/listall")
+											.uri("imagem/listall")
 											.retrieve()
 											.bodyToMono(ImagemModel[].class);
 		
@@ -52,7 +52,7 @@ public class ImagemService {
 	public Boolean deleteTarefa(Integer id) {
 		Mono<Boolean> objDel = this.webClient
 											.method(HttpMethod.DELETE)
-											.uri("status/{id}", id)
+											.uri("imagem/{id}", id)
 											.retrieve()
 											.bodyToMono(Boolean.class);
 		
@@ -65,7 +65,7 @@ public class ImagemService {
 		System.out.println(getClass() + "insert: " + imagemModel);
 		Mono<Boolean> status = this.webClient
 									.method(HttpMethod.POST)
-									.uri("status/")
+									.uri("imagem/")
 									.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 									.body(Mono.just(imagemModel), ImagemModel.class)
 									.retrieve()
@@ -78,7 +78,7 @@ public class ImagemService {
 		System.out.println("update: " + imagemModel);
 		Mono<ImagemModel> status = this.webClient
 									.method(HttpMethod.PUT)
-									.uri("status/{id}", imagemModel.getId_Imagem())
+									.uri("imagem/{id}", imagemModel.getId_Imagem())
 									.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 									.body(Mono.just(imagemModel), ImagemModel.class)
 									.retrieve()
