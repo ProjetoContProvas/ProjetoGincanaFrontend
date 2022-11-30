@@ -66,6 +66,11 @@ public class EquipeController {
 		return "redirect:/equipe/";
 	}
 	
+	@GetMapping("/dashboard_equipe")
+	public String dashboard_equipe() {
+		return "/equipe/dashboard_equipe";
+	}
+	
 	/*@GetMapping("/modificar_status/{id}")
 	public String modificar_status(@PathVariable("id") Integer id) {
 		EquipeModel tm = this.equipeService.getEquipe(id);
