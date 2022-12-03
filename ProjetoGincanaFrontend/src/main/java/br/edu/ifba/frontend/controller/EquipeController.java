@@ -12,14 +12,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import br.edu.ifba.frontend.model.CursoModel;
 import br.edu.ifba.frontend.model.EquipeModel;
+import br.edu.ifba.frontend.model.GincanaModel;
+import br.edu.ifba.frontend.model.UsuarioModel;
+import br.edu.ifba.frontend.service.CursoService;
 import br.edu.ifba.frontend.service.EquipeService;
+import br.edu.ifba.frontend.service.GincanaService;
+import br.edu.ifba.frontend.service.UsuarioService;
+import br.edu.ifba.frontend.tela.EquipeTelaModel;
 
 @Controller
 @RequestMapping("/equipe")
 public class EquipeController {
+	
 	@Autowired
 	private EquipeService equipeService;
+
+	@Autowired
+	private GincanaService gincanaService;
+	
+	@Autowired
+	private CursoService cursoService;
+	
+	@Autowired
+	private UsuarioService usuarioService;
 	
 	@GetMapping("/")
 	public String index(Model model) {
@@ -30,16 +47,35 @@ public class EquipeController {
 	}
 
 	@GetMapping("/adicionar_form")
-	public String adicionar_form() {
+	public String adicionar_form(Model model) {
+		List<GincanaModel> list = this.gincanaService.getGincanas();
+		List<CursoModel> list1 = this.cursoService.getCursos();
+		List<UsuarioModel> list2 = this.usuarioService.getUsuarios();
+		model.addAttribute("gincanas",list);
+		model.addAttribute("cursos", list1);
+		model.addAttribute("usuarios", list2);
 		return "equipe/adicionar_form";
 	}
 	
 	@PostMapping("/adicionar")
-	public String adicionar(@ModelAttribute EquipeModel equipeModel, Model model) {
-		System.out.println("insert: " + equipeModel.getNome_Equipe());
-		EquipeModel tm = new EquipeModel();
-		tm.setNome_Equipe( equipeModel.getNome_Equipe() );
-		equipeService.insert(tm);
+	public String adicionar(@ModelAttribute EquipeTelaModel equipeTelaModel, Model model) {
+		GincanaModel gm = new GincanaModel();
+		gm.setId_Gincana(equipeTelaModel.getGincana());
+		
+		CursoModel cm = new CursoModel();
+		cm.setId_Curso(equipeTelaModel.getCurso());
+		
+		UsuarioModel um = new UsuarioModel();
+		um.setId_Usuario(equipeTelaModel.getUsuario());
+		
+		
+		EquipeModel em = new EquipeModel();
+		em.setNome_Equipe( equipeTelaModel.getNome_Equipe() );
+		em.setDescricao_Equipe(equipeTelaModel.getDescricao_Equipe());
+		em.setGincana(gm);
+		em.setCurso(cm);
+		em.setUsuario(um);
+		equipeService.insert(em);
 		return "redirect:/equipe/";
 	}
 	

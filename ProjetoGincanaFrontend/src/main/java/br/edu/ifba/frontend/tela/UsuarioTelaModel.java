@@ -1,36 +1,30 @@
-package br.edu.ifba.frontend.model;
+package br.edu.ifba.frontend.tela;
 
-import java.sql.Date;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-public class UsuarioModel {
+public class UsuarioTelaModel {
 
 	private Integer id_Usuario;
 	private String nome_Usuario;
 	private String email_Usuario;
 	private String senha_Usuario;
 	private String sexo_Usuario;
-	private Date data_cadastro_Usuario;
-	private GincanaModel gincana;
-	private PerfilModel perfil;
+	private Integer gincana;
+	private Integer perfil;
 
-	public UsuarioModel() {
+	public UsuarioTelaModel() {
 		super();
 	}
 
-	public UsuarioModel(Integer id_Usuario, String nome_Usuario, String email_Usuario, String senha_Usuario,
-			String sexo_Usuario, Date data_cadastro_Usuario, GincanaModel gincana, PerfilModel perfil) {
+	public UsuarioTelaModel(Integer id_Usuario, String nome_Usuario, String email_Usuario, String senha_Usuario,
+			String sexo_Usuario, Integer gincana, Integer perfil) {
 		super();
 		this.id_Usuario = id_Usuario;
 		this.nome_Usuario = nome_Usuario;
 		this.email_Usuario = email_Usuario;
 		this.senha_Usuario = senha_Usuario;
 		this.sexo_Usuario = sexo_Usuario;
-		this.data_cadastro_Usuario = data_cadastro_Usuario;
 		this.gincana = gincana;
 		this.perfil = perfil;
 	}
@@ -75,36 +69,27 @@ public class UsuarioModel {
 		this.sexo_Usuario = sexo_Usuario;
 	}
 
-	public Date getData_cadastro_Usuario() {
-		return data_cadastro_Usuario;
-	}
-
-	public void setData_cadastro_Usuario(Date data_cadastro_Usuario) {
-		this.data_cadastro_Usuario = data_cadastro_Usuario;
-	}
-
-	public GincanaModel getGincana() {
+	public Integer getGincana() {
 		return gincana;
 	}
 
-	public void setGincana(GincanaModel gincana) {
+	public void setGincana(Integer gincana) {
 		this.gincana = gincana;
 	}
 
-	public PerfilModel getPerfil() {
+	public Integer getPerfil() {
 		return perfil;
 	}
 
-	public void setPerfil(PerfilModel perfil) {
+	public void setPerfil(Integer perfil) {
 		this.perfil = perfil;
 	}
 
 	@Override
 	public String toString() {
-		return "UsuarioModel [id_Usuario=" + id_Usuario + ", nome_Usuario=" + nome_Usuario + ", email_Usuario="
-				+ email_Usuario + ", senha_Usuario=" + senha_Usuario + ", sexo_Usuario=" + sexo_Usuario
-				+ ", data_cadastro_Usuario=" + data_cadastro_Usuario + ", gincana=" + gincana + ", perfil=" + perfil
-				+ "]";
+		return "UsuarioTelaModel [id_Usuario=" + id_Usuario + ", nome_Usuario=" + nome_Usuario + ", email_Usuario="
+				+ email_Usuario + ", senha_Usuario=" + senha_Usuario + ", sexo_Usuario=" + sexo_Usuario + ", gincana="
+				+ gincana + ", perfil=" + perfil + "]";
 	}
 
 }

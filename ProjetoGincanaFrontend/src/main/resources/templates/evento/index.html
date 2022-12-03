@@ -59,9 +59,9 @@
 											<td th:text="${evento.gincana.nome_Gincana}"></td>
 											<td th:text="${evento.status.situacao_Status}"></td>
 											<td>
-												<a th:href="@{/evento/editar_form/{id_Evento}(id_Evento=${evento.id_Evento})}"
+												<a th:href="@{/evento/editar_form/{id}(id=${evento.id_Evento})}"
 													class="btn btn-success"><i class="fa fa-pencil white"></i></a>
-												<a th:href="@{/evento/deletar/{id_Evento}(id_Evento=${evento.id_Evento})}"
+												<a th:href="@{/evento/deletar/{id}(id=${evento.id_Evento})}"
 													class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
 											</td>
 										</tr>
