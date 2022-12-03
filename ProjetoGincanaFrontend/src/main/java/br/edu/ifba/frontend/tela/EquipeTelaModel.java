@@ -1,27 +1,23 @@
-package br.edu.ifba.frontend.model;
+package br.edu.ifba.frontend.tela;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class EquipeModel {
+public class EquipeTelaModel {
 
 	private Integer id_Equipe;
 	private String nome_Equipe;
 	private String descricao_Equipe;
-	private GincanaModel gincana;
-	private CursoModel curso;
-	private UsuarioModel usuario;
+	private Integer gincana;
+	private Integer curso;
+	private Integer usuario;
 
-	public EquipeModel() {
+	public EquipeTelaModel() {
 		super();
 	}
 
-	public EquipeModel(Integer id_Equipe, String nome_Equipe, String descricao_Equipe, GincanaModel gincana,
-			CursoModel curso, UsuarioModel usuario) {
+	public EquipeTelaModel(Integer id_Equipe, String nome_Equipe, String descricao_Equipe, Integer gincana,
+			Integer curso, Integer usuario) {
 		super();
 		this.id_Equipe = id_Equipe;
 		this.nome_Equipe = nome_Equipe;
@@ -55,33 +51,33 @@ public class EquipeModel {
 		this.descricao_Equipe = descricao_Equipe;
 	}
 
-	public GincanaModel getGincana() {
+	public Integer getGincana() {
 		return gincana;
 	}
 
-	public void setGincana(GincanaModel gincana) {
+	public void setGincana(Integer gincana) {
 		this.gincana = gincana;
 	}
 
-	public CursoModel getCurso() {
+	public Integer getCurso() {
 		return curso;
 	}
 
-	public void setCurso(CursoModel curso) {
+	public void setCurso(Integer curso) {
 		this.curso = curso;
 	}
 
-	public UsuarioModel getUsuario() {
+	public Integer getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(UsuarioModel usuario) {
+	public void setUsuario(Integer usuario) {
 		this.usuario = usuario;
 	}
 
 	@Override
 	public String toString() {
-		return "EquipeModel [id_Equipe=" + id_Equipe + ", nome_Equipe=" + nome_Equipe + ", descricao_Equipe="
+		return "EquipeTelaModel [id_Equipe=" + id_Equipe + ", nome_Equipe=" + nome_Equipe + ", descricao_Equipe="
 				+ descricao_Equipe + ", gincana=" + gincana + ", curso=" + curso + ", usuario=" + usuario + "]";
 	}
 

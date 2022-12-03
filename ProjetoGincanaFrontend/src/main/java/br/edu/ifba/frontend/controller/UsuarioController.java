@@ -13,53 +13,72 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import br.edu.ifba.frontend.model.GincanaModel;
+import br.edu.ifba.frontend.model.PerfilModel;
 import br.edu.ifba.frontend.model.UsuarioModel;
+import br.edu.ifba.frontend.service.GincanaService;
+import br.edu.ifba.frontend.service.PerfilService;
 import br.edu.ifba.frontend.service.UsuarioService;
+import br.edu.ifba.frontend.tela.GincanaTelaModel;
+import br.edu.ifba.frontend.tela.UsuarioTelaModel;
 
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
+	@Autowired
+	private GincanaService gincanaService;
+
+	@Autowired
+	private PerfilService perfilService;
+
 	@GetMapping("/")
 	public String index(Model model) {
 		System.out.println("usuarios_lista - init");
 		List<UsuarioModel> list = this.usuarioService.getUsuarios();
-		model.addAttribute("usuario", list);
+		model.addAttribute("usuarios", list);
 		return "usuario/index";
 	}
 
 	@GetMapping("/adicionar_form")
-	public String adicionar_form() {
+	public String adicionar_form(Model model) {
+		List<GincanaModel> list = this.gincanaService.getGincanas();
+		model.addAttribute("gincanas", list);
+		List<PerfilModel> list2 = this.perfilService.getPerfis();
+		model.addAttribute("perfis", list2);
 		return "usuario/adicionar_form";
 	}
-	
+
 	@PostMapping("/adicionar")
-	public String adicionar(@ModelAttribute UsuarioModel usuarioModel, Model model) {
-		System.out.println("adicionar nome: " + usuarioModel.getNome_Usuario());
-		System.out.println("adicionar e-mail: " + usuarioModel.getEmail_Usuario());
-		System.out.println("adicioanr senha: " + usuarioModel.getSenha_Usuario());
-		System.out.println("adicionar sexo: " + usuarioModel.getSexo_Usuario());	
-		System.out.println("adicionar data de cadastro: " + usuarioModel.getData_cadastro_Usuario());
+	public String adicionar(@ModelAttribute UsuarioTelaModel usuarioTelaModel, Model model) {
+
+		GincanaModel gm = new GincanaModel();
+		gm.setId_Gincana(usuarioTelaModel.getGincana());
+
+		PerfilModel pm = new PerfilModel();
+		pm.setId_Perfil(usuarioTelaModel.getPerfil());
+
 		UsuarioModel tm = new UsuarioModel();
-	
-		tm.setNome_Usuario(usuarioModel.getNome_Usuario());
-		tm.setEmail_Usuario(usuarioModel.getEmail_Usuario());
-		tm.setSenha_Usuario(usuarioModel.getSenha_Usuario());
-		tm.setSexo_Usuario(usuarioModel.getSexo_Usuario());
-		tm.setData_cadastro_Usuario( new Date(System.currentTimeMillis()) );
-		
+
+		tm.setNome_Usuario(usuarioTelaModel.getNome_Usuario());
+		tm.setEmail_Usuario(usuarioTelaModel.getEmail_Usuario());
+		tm.setSenha_Usuario(usuarioTelaModel.getSenha_Usuario());
+		tm.setSexo_Usuario(usuarioTelaModel.getSexo_Usuario());
+		tm.setData_cadastro_Usuario(new Date(System.currentTimeMillis()));
+		tm.setGincana(gm);
+		tm.setPerfil(pm);
 		usuarioService.insert(tm);
 		return "redirect:/usuario/";
 	}
-	
-	@RequestMapping(value="/deletar/{id_Usuario}", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/deletar/{id_Usuario}", method = RequestMethod.GET)
 	public String delete(@PathVariable("id_Usuario") Integer id_Usuario) {
 		Boolean boo = this.usuarioService.deleteUsuario(id_Usuario);
 		return "redirect:/usuario/";
 	}
-	
+
 	@GetMapping("/editar_form/{id}")
 	public String editar_form(@PathVariable("id") Integer id, Model model) {
 		UsuarioModel tm = this.usuarioService.getUsuario(id);
@@ -70,26 +89,20 @@ public class UsuarioController {
 		model.addAttribute("readonly", true);
 		return "usuario/editar_form";
 	}
-	
+
 	@PostMapping("/editar")
 	public String editar(@ModelAttribute UsuarioModel usuarioModel, Model model) {
 		UsuarioModel tm = this.usuarioService.getUsuario(usuarioModel.getId_Usuario());
 		usuarioService.update(tm);
 		return "redirect:/usuario/";
 	}
-	
-	/*@GetMapping("/modificar_status/{id}")
-	public String modificar_status(@PathVariable("id") Integer id) {
-		UsuarioModel tm = this.usuarioService.getTarefa(id);
-		if (!tm.getStatus()) {
-			tm.setData_conclusao( new Date(System.currentTimeMillis()) );
-		}
-		else {
-			tm.setData_conclusao( null );
-		}
-		tm.setStatus( !tm.getStatus() );
-		usuarioService.update(tm);
-		return "redirect:/tarefa/";
-		*/
-	}
 
+	/*
+	 * @GetMapping("/modificar_status/{id}") public String
+	 * modificar_status(@PathVariable("id") Integer id) { UsuarioModel tm =
+	 * this.usuarioService.getTarefa(id); if (!tm.getStatus()) {
+	 * tm.setData_conclusao( new Date(System.currentTimeMillis()) ); } else {
+	 * tm.setData_conclusao( null ); } tm.setStatus( !tm.getStatus() );
+	 * usuarioService.update(tm); return "redirect:/tarefa/";
+	 */
+}

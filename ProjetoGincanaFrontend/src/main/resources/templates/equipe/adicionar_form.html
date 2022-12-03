@@ -41,9 +41,60 @@
 												placeholder="nome da equipe" required />
 										</div>
 									</div><!-- form-group -->
+									
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Descrição<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="descricao_Equipe" name="descricao_Equipe" class="form-control"
+												placeholder="descrição da equipe" required />
+										</div>
+									</div><!-- form-group -->
+									
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Gincana<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control"  name="gincana">
+											    <option value="0">Gincana</option>
+											    <option th:each="gincana : ${gincanas}" th:value="${gincana.id_Gincana}" th:text="${gincana.nome_Gincana}"></option>
+											</select>
+											</div>
+									</div><!-- form-group -->
+									
+									
+									<div class="form-group">
+							            
+							
+										<label class="col-sm-3 control-label">Curso<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control"  name="curso">
+											    <option value="0">Gincana</option>
+											    <option th:each="curso : ${cursos}" th:value="${curso.id_Curso}" th:text="${curso.nome_Curso}"></option>
+											</select>
+											</div>
+									</div><!-- form-group -->
+									
+									<div class="form-group">
+							            
+							
+										<label class="col-sm-3 control-label">Representante<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control"  name="usuario">
+											    <option value="0">Representante</option>
+											    <option th:each="usuario : ${usuarios}" th:value="${usuario.id_Usuario}" th:text="${usuario.nome_Usuario}"></option>
+											</select>
+											</div>
+									</div><!-- form-group -->
+									
+									
+									
 
 									</div><!-- row -->
 							</div><!-- panel-body -->
+							
+							
+							
 							<div class="panel-footer">
 								<div class="row">
 									<a href="/equipe/" class="btn btn-success">Voltar</a>
