@@ -125,4 +125,9 @@ public class EventoController {
 		return "redirect:/tarefa/";
 	}
 	*/
+	
+	@GetMapping("/dashboard_evento")
+	public String desenvolvedores() {
+		return "/evento/dashboard_evento";
+	}
 }
