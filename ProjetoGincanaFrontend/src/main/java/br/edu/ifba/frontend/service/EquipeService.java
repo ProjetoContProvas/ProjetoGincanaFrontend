@@ -21,8 +21,10 @@ public class EquipeService {
 
 	public EquipeModel getEquipes(Integer id) {
 
-		Mono<EquipeModel> equipeModel = this.webClient.method(HttpMethod.GET).uri("equipe/{id}", id).retrieve()
-				.bodyToMono(EquipeModel.class);
+		Mono<EquipeModel> equipeModel = this.webClient.method(HttpMethod.GET)
+													  .uri("equipe/{id}", id)
+													  .retrieve()
+													  .bodyToMono(EquipeModel.class);
 
 		EquipeModel em = equipeModel.block();
 		return em;
@@ -51,10 +53,10 @@ public class EquipeService {
 	}
 
 	public Boolean insert(EquipeModel equipeModel) {
-		Mono<Boolean> equipe = this.webClient.method(HttpMethod.POST).uri("equipe/")
+		Mono<Boolean> equipes = this.webClient.method(HttpMethod.POST).uri("equipe/")
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 				.body(Mono.just(equipeModel), EquipeModel.class).retrieve().bodyToMono(Boolean.class);
-		Boolean result = equipe.block();
+		Boolean result = equipes.block();
 		return result;
 	}
 

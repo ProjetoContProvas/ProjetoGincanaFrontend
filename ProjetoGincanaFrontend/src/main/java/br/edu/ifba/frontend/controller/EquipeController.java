@@ -107,6 +107,13 @@ public class EquipeController {
 		return "/equipe/dashboard_equipe";
 	}
 	
+	@GetMapping("/indexdashboard_equipe")
+	public String indexdashboard_equipe() {
+		return "/equipe/indexdashboard_equipe";
+	}
+	
+	
+	
 	/*@GetMapping("/modificar_status/{id}")
 	public String modificar_status(@PathVariable("id") Integer id) {
 		EquipeModel tm = this.equipeService.getEquipe(id);
