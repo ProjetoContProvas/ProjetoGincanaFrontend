@@ -81,19 +81,36 @@ public class UsuarioController {
 
 	@GetMapping("/editar_form/{id}")
 	public String editar_form(@PathVariable("id") Integer id, Model model) {
+		
+		
 		UsuarioModel tm = this.usuarioService.getUsuario(id);
-		model.addAttribute("Modificar id do usuário", tm.getId_Usuario());
-		model.addAttribute("Modificar e-mail do usuário", tm.getEmail_Usuario());
-		model.addAttribute("Modificar nome do usuário", tm.getNome_Usuario());
-		model.addAttribute("Modificar senha do usuário", tm.getSenha_Usuario());
+		
+		
+		
+		model.addAttribute("id_Usuario", tm.getId_Usuario());
+		model.addAttribute("nome_Usuario", tm.getNome_Usuario());
+		model.addAttribute("email_Usuario", tm.getEmail_Usuario());
+		model.addAttribute("senha_Usuario", tm.getSenha_Usuario());
 		model.addAttribute("readonly", true);
 		return "usuario/editar_form";
 	}
 
 	@PostMapping("/editar")
-	public String editar(@ModelAttribute UsuarioModel usuarioModel, Model model) {
-		UsuarioModel tm = this.usuarioService.getUsuario(usuarioModel.getId_Usuario());
-		usuarioService.update(tm);
+	public String editar(@ModelAttribute UsuarioTelaModel usuarioTelaModel, Model model) {
+		PerfilModel pm = new PerfilModel();
+		pm.setId_Perfil(usuarioTelaModel.getPerfil());
+		GincanaModel gm = new GincanaModel();
+		gm.setId_Gincana(usuarioTelaModel.getGincana());
+		
+		UsuarioModel um = new UsuarioModel();
+		um.setNome_Usuario(usuarioTelaModel.getNome_Usuario());
+		um.setEmail_Usuario(usuarioTelaModel.getEmail_Usuario());
+		um.setSexo_Usuario(usuarioTelaModel.getSexo_Usuario());
+		um.setSenha_Usuario(usuarioTelaModel.getSexo_Usuario());
+		um.setPerfil(pm);
+		um.setGincana(gm);
+		
+		usuarioService.update(um);
 		return "redirect:/usuario/";
 	}
 

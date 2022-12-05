@@ -1,5 +1,7 @@
 package br.edu.ifba.frontend.tela;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
@@ -10,6 +12,7 @@ public class UsuarioTelaModel {
 	private String email_Usuario;
 	private String senha_Usuario;
 	private String sexo_Usuario;
+	private Date data_cadastro_Usuario;
 	private Integer gincana;
 	private Integer perfil;
 
@@ -18,16 +21,19 @@ public class UsuarioTelaModel {
 	}
 
 	public UsuarioTelaModel(Integer id_Usuario, String nome_Usuario, String email_Usuario, String senha_Usuario,
-			String sexo_Usuario, Integer gincana, Integer perfil) {
+			String sexo_Usuario, Date data_cadastro_Usuario, Integer gincana, Integer perfil) {
 		super();
 		this.id_Usuario = id_Usuario;
 		this.nome_Usuario = nome_Usuario;
 		this.email_Usuario = email_Usuario;
 		this.senha_Usuario = senha_Usuario;
 		this.sexo_Usuario = sexo_Usuario;
+		this.data_cadastro_Usuario = data_cadastro_Usuario;
 		this.gincana = gincana;
 		this.perfil = perfil;
 	}
+
+
 
 	public Integer getId_Usuario() {
 		return id_Usuario;
@@ -67,6 +73,14 @@ public class UsuarioTelaModel {
 
 	public void setSexo_Usuario(String sexo_Usuario) {
 		this.sexo_Usuario = sexo_Usuario;
+	}
+
+	public Date getData_cadastro_Usuario() {
+		return data_cadastro_Usuario;
+	}
+
+	public void setData_cadastro_Usuario(Date data_cadastro_Usuario) {
+		this.data_cadastro_Usuario = data_cadastro_Usuario;
 	}
 
 	public Integer getGincana() {
