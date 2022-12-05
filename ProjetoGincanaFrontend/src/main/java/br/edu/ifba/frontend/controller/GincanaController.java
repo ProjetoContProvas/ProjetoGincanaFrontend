@@ -53,7 +53,7 @@ public class GincanaController {
 		
 		
 		StatusModel sm = new StatusModel();
-		sm.setId_Status(gincanaTelaModel.getStatus());
+		sm.setId_Status(gincanaTelaModel.getId_Status());
 		
 		GincanaModel gm = new GincanaModel();
 		gm.setNome_Gincana(gincanaTelaModel.getNome_Gincana());
@@ -73,23 +73,37 @@ public class GincanaController {
 	
 	@GetMapping("/editar_form/{id}")
 	public String editar_form(@PathVariable("id") Integer id, Model model) {
+		
+		List<StatusModel> list = this.statusService.getListStatus();
+		//System.out.println("editar_form: " + list);
+
 		GincanaModel gm = this.gincanaService.getGincana(id);
-		model.addAttribute("id_gincana", gm.getId_Gincana());
+		model.addAttribute("id_Gincana", gm.getId_Gincana());
 		model.addAttribute("nome_Gincana", gm.getNome_Gincana());
-		model.addAttribute("descricao_Gincana", gm.getData_inicio_Gincana());
-		model.addAttribute("data_inicio_Gincana", gm.getData_fim_Gincana());
+		model.addAttribute("descricao_Gincana", gm.getDescricao_Gincana());
+		model.addAttribute("data_inicio_Gincana", gm.getData_inicio_Gincana());
+		model.addAttribute("data_fim_Gincana", gm.getData_fim_Gincana());
+		model.addAttribute("id_Status", gm.getStatus().getId_Status());
+		model.addAttribute("list_status", list);
 		model.addAttribute("readonly", true);
 		return "gincana/editar_form";
 	}
 	
 	@PostMapping("/editar")
-	public String editar(@ModelAttribute GincanaModel gincanaModel, Model model) {
-		GincanaModel gm = this.gincanaService.getGincana(gincanaModel.getId_Gincana());
-		gm.setNome_Gincana(gincanaModel.getNome_Gincana());
-		gm.setDescricao_Gincana(gincanaModel.getDescricao_Gincana());
-		gm.setData_inicio_Gincana(gincanaModel.getData_inicio_Gincana());
-		gm.setData_fim_Gincana(gincanaModel.getData_fim_Gincana());
-		gm.setStatus(gincanaModel.getStatus());
+	public String editar(@ModelAttribute GincanaTelaModel gincanaTelaModel, Model model) {
+		
+		System.out.println("gincanaModel: " + gincanaTelaModel);
+		System.out.println("model: " + model);
+		
+		StatusModel sm = this.statusService.getStatus( gincanaTelaModel.getId_Status() );		
+		System.out.println("StatusModel: " + sm);
+		
+		GincanaModel gm = this.gincanaService.getGincana(gincanaTelaModel.getId_Gincana());
+		gm.setNome_Gincana(gincanaTelaModel.getNome_Gincana());
+		gm.setDescricao_Gincana(gincanaTelaModel.getDescricao_Gincana());
+		gm.setData_inicio_Gincana(gincanaTelaModel.getData_inicio_Gincana());
+		gm.setData_fim_Gincana(gincanaTelaModel.getData_fim_Gincana());
+		gm.setStatus(sm);
 		gincanaService.update(gm);
 		return "redirect:/gincana/";
 	}
