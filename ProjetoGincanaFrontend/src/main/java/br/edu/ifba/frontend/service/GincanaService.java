@@ -74,7 +74,7 @@ public class GincanaService {
 	}
 	
 	public GincanaModel update(GincanaModel gincanaModel) {
-		System.out.println("update: " + gincanaModel);
+		
 		Mono<GincanaModel> gincana = this.webClient
 									.method(HttpMethod.PUT)
 									.uri("gincana/{id}", gincanaModel.getId_Gincana())
@@ -82,6 +82,8 @@ public class GincanaService {
 									.body(Mono.just(gincanaModel), GincanaModel.class)
 									.retrieve()
 									.bodyToMono(GincanaModel.class);
+		
+		
 		GincanaModel result = gincana.block();
 		return result;
 	}
