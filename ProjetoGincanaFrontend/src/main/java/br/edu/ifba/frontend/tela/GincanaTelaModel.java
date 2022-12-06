@@ -12,21 +12,21 @@ public class GincanaTelaModel {
 	private String descricao_Gincana;
 	private Date data_inicio_Gincana;
 	private Date data_fim_Gincana;
-	private Integer id_Status;
+	private Integer status;
 
 	public GincanaTelaModel() {
 		super();
 	}
 
 	public GincanaTelaModel(Integer id_Gincana, String nome_Gincana, String descricao_Gincana, Date data_inicio_Gincana,
-			Date data_fim_Gincana, Integer id_Status) {
+			Date data_fim_Gincana, Integer status) {
 		super();
 		this.id_Gincana = id_Gincana;
 		this.nome_Gincana = nome_Gincana;
 		this.descricao_Gincana = descricao_Gincana;
 		this.data_inicio_Gincana = data_inicio_Gincana;
 		this.data_fim_Gincana = data_fim_Gincana;
-		this.id_Status = id_Status;
+		this.status = status;
 	}
 
 	public Integer getId_Gincana() {
@@ -69,21 +69,19 @@ public class GincanaTelaModel {
 		this.data_fim_Gincana = data_fim_Gincana;
 	}
 
-
-
-	public Integer getId_Status() {
-		return id_Status;
+	public Integer getStatus() {
+		return status;
 	}
 
-	public void setId_Status(Integer id_Status) {
-		this.id_Status = id_Status;
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 	@Override
 	public String toString() {
 		return "GincanaTelaModel [id_Gincana=" + id_Gincana + ", nome_Gincana=" + nome_Gincana + ", descricao_Gincana="
 				+ descricao_Gincana + ", data_inicio_Gincana=" + data_inicio_Gincana + ", data_fim_Gincana="
-				+ data_fim_Gincana + ", id_Status=" + id_Status + "]";
+				+ data_fim_Gincana + ", status=" + status + "]";
 	}
 
 }

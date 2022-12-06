@@ -61,6 +61,7 @@ public class GincanaService {
 	}
 	
 	public Boolean insert(GincanaModel gincanaModel) {
+		System.out.println("Objeto --------------------------------> " + gincanaModel);
 		Mono<Boolean> gincana = this.webClient
 									.method(HttpMethod.POST)
 									.uri("gincana/")
