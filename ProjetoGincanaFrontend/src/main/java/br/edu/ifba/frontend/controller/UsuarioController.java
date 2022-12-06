@@ -82,6 +82,8 @@ public class UsuarioController {
 	@GetMapping("/editar_form/{id}")
 	public String editar_form(@PathVariable("id") Integer id, Model model) {
 		
+		List<GincanaModel> list = this.gincanaService.getGincanas();
+		List<PerfilModel> list2 = this.perfilService.getPerfis();
 		
 		UsuarioModel tm = this.usuarioService.getUsuario(id);
 		
@@ -90,26 +92,32 @@ public class UsuarioController {
 		model.addAttribute("id_Usuario", tm.getId_Usuario());
 		model.addAttribute("nome_Usuario", tm.getNome_Usuario());
 		model.addAttribute("email_Usuario", tm.getEmail_Usuario());
+		model.addAttribute("sexo_Usuario", tm.getSexo_Usuario());
+		model.addAttribute("data_cadastro_Usuario", tm.getData_cadastro_Usuario());
 		model.addAttribute("senha_Usuario", tm.getSenha_Usuario());
+		model.addAttribute("id_Gincana", tm.getGincana().getId_Gincana());
+		model.addAttribute("id_Perfil", tm.getPerfil().getId_Perfil());
+		model.addAttribute("gincanas", list);
+		model.addAttribute("perfis", list2);
 		model.addAttribute("readonly", true);
 		return "usuario/editar_form";
 	}
 
 	@PostMapping("/editar")
 	public String editar(@ModelAttribute UsuarioTelaModel usuarioTelaModel, Model model) {
-		PerfilModel pm = new PerfilModel();
-		pm.setId_Perfil(usuarioTelaModel.getPerfil());
-		GincanaModel gm = new GincanaModel();
-		gm.setId_Gincana(usuarioTelaModel.getGincana());
 		
-		UsuarioModel um = new UsuarioModel();
+		GincanaModel gm = this.gincanaService.getGincana(usuarioTelaModel.getGincana());
+		PerfilModel pm = this.perfilService.getPerfil(usuarioTelaModel.getPerfil());
+		
+		
+		UsuarioModel um = this.usuarioService.getUsuario(usuarioTelaModel.getId_Usuario());
 		um.setNome_Usuario(usuarioTelaModel.getNome_Usuario());
 		um.setEmail_Usuario(usuarioTelaModel.getEmail_Usuario());
 		um.setSexo_Usuario(usuarioTelaModel.getSexo_Usuario());
 		um.setSenha_Usuario(usuarioTelaModel.getSexo_Usuario());
+		um.setData_cadastro_Usuario(usuarioTelaModel.getData_cadastro_Usuario());
 		um.setPerfil(pm);
 		um.setGincana(gm);
-		
 		usuarioService.update(um);
 		return "redirect:/usuario/";
 	}

@@ -102,8 +102,10 @@ public class UsuarioTelaModel {
 	@Override
 	public String toString() {
 		return "UsuarioTelaModel [id_Usuario=" + id_Usuario + ", nome_Usuario=" + nome_Usuario + ", email_Usuario="
-				+ email_Usuario + ", senha_Usuario=" + senha_Usuario + ", sexo_Usuario=" + sexo_Usuario + ", gincana="
-				+ gincana + ", perfil=" + perfil + "]";
+				+ email_Usuario + ", senha_Usuario=" + senha_Usuario + ", sexo_Usuario=" + sexo_Usuario
+				+ ", data_cadastro_Usuario=" + data_cadastro_Usuario + ", gincana=" + gincana + ", perfil=" + perfil
+				+ "]";
 	}
 
+	
 }
