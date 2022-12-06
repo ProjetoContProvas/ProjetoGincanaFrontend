@@ -89,10 +89,7 @@ public class GincanaController {
 
 	@PostMapping("/editar")
 	public String editar(@ModelAttribute GincanaTelaModel gincanaTelaModel, Model model) {
-
-		System.out.println("model -------------------------------------> " + model);
-
-		System.out.println("model -------------------------------------> " + gincanaTelaModel);
+	
 		
 		StatusModel sm = this.statusService.getStatus(gincanaTelaModel.getStatus());
 
@@ -106,16 +103,5 @@ public class GincanaController {
 		return "redirect:/gincana/";
 	}
 
-	/*
-	 * @PostMapping("/editar_status") public String editar(@ModelAttribute
-	 * GincanaTelaModel tarefaTelaModel, Model model) {
-	 * System.out.println("Tarefa - modificar - insert: " + tarefaTelaModel);
-	 * StatusModel sm = new StatusModel();
-	 * sm.setId_status(tarefaTelaModel.getId_status());
-	 * 
-	 * TarefaModel tm = this.tarefaService.getTarefa(tarefaTelaModel.getId());
-	 * tm.setDescricao( tarefaTelaModel.getDescricao() ); tm.setStatus( sm );
-	 * tarefaService.update(tm); return "redirect:/tarefa/"; }
-	 */
 
 }

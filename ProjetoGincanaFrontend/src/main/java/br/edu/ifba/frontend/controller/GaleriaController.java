@@ -67,24 +67,74 @@ public class GaleriaController {
 		return "redirect:/galeria/";
 	}
 	
+	
+	
 	@GetMapping("/editar_form/{id}")
 	public String editar_form(@PathVariable("id") Integer id, Model model) {
-		GaleriaModel tm = this.galeriaService.getGaleria(id);
-		model.addAttribute("id_Galeria", tm.getId_Galeria());
-		model.addAttribute("nome_Galeria", tm.getNome_Galeria());
-		model.addAttribute("descricao_Galeria", tm.getDescricao_Galeria());
+		
+		List<GincanaModel> list = this.gincanaService.getGincanas();
+		
+		GaleriaModel gm = this.galeriaService.getGaleria(id);
+		model.addAttribute("id_Galeria", gm.getId_Galeria());
+		model.addAttribute("nome_Galeria", gm.getNome_Galeria());
+		model.addAttribute("descricao_Galeria", gm.getDescricao_Galeria());
+		model.addAttribute("id_Gincana", gm.getGincana().getId_Gincana());
+		model.addAttribute("gincanas", list);
+
+		
 		model.addAttribute("readonly", true);
 		return "galeria/editar_form";
 	}
 	
 	@PostMapping("/editar")
-	public String editar(@ModelAttribute GaleriaModel galeriaModel, Model model) {
-		GaleriaModel tm = this.galeriaService.getGaleria(galeriaModel.getId_Galeria());
-		tm.setNome_Galeria(galeriaModel.getNome_Galeria());
-		tm.setDescricao_Galeria(galeriaModel.getDescricao_Galeria());
+	public String editar(@ModelAttribute GaleriaTelaModel galeriaTelaModel, Model model) {
+		GincanaModel gm = this.gincanaService.getGincana(galeriaTelaModel.getGincana());
+		
+		
+		GaleriaModel tm = this.galeriaService.getGaleria(galeriaTelaModel.getId_Galeria());
+		tm.setNome_Galeria(galeriaTelaModel.getNome_Galeria());
+		tm.setDescricao_Galeria(galeriaTelaModel.getDescricao_Galeria());
+		tm.setGincana(gm);
 		galeriaService.update(tm);
 		return "redirect:/galeria/";
 	}
+	
+	@GetMapping("/indexdashboard")
+	public String desenvolvedores() {
+		return "imagem/indexdashboard";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

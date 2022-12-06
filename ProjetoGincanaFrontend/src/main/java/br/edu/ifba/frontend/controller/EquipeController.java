@@ -25,19 +25,19 @@ import br.edu.ifba.frontend.tela.EquipeTelaModel;
 @Controller
 @RequestMapping("/equipe")
 public class EquipeController {
-	
+
 	@Autowired
 	private EquipeService equipeService;
 
 	@Autowired
 	private GincanaService gincanaService;
-	
+
 	@Autowired
 	private CursoService cursoService;
-	
+
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@GetMapping("/")
 	public String index(Model model) {
 		System.out.println("equipes_lista - init");
@@ -51,26 +51,25 @@ public class EquipeController {
 		List<GincanaModel> list = this.gincanaService.getGincanas();
 		List<CursoModel> list1 = this.cursoService.getCursos();
 		List<UsuarioModel> list2 = this.usuarioService.getUsuarios();
-		model.addAttribute("gincanas",list);
+		model.addAttribute("gincanas", list);
 		model.addAttribute("cursos", list1);
 		model.addAttribute("usuarios", list2);
 		return "equipe/adicionar_form";
 	}
-	
+
 	@PostMapping("/adicionar")
 	public String adicionar(@ModelAttribute EquipeTelaModel equipeTelaModel, Model model) {
 		GincanaModel gm = new GincanaModel();
 		gm.setId_Gincana(equipeTelaModel.getGincana());
-		
+
 		CursoModel cm = new CursoModel();
 		cm.setId_Curso(equipeTelaModel.getCurso());
-		
+
 		UsuarioModel um = new UsuarioModel();
 		um.setId_Usuario(equipeTelaModel.getUsuario());
-		
-		
+
 		EquipeModel em = new EquipeModel();
-		em.setNome_Equipe( equipeTelaModel.getNome_Equipe() );
+		em.setNome_Equipe(equipeTelaModel.getNome_Equipe());
 		em.setDescricao_Equipe(equipeTelaModel.getDescricao_Equipe());
 		em.setGincana(gm);
 		em.setCurso(cm);
@@ -78,53 +77,58 @@ public class EquipeController {
 		equipeService.insert(em);
 		return "redirect:/equipe/";
 	}
-	
-	@RequestMapping(value="/deletar/{id}", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/deletar/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable("id") Integer id) {
 		Boolean boo = this.equipeService.deleteEquipe(id);
 		return "redirect:/equipe/";
 	}
-	
+
 	@GetMapping("/editar_form/{id}")
 	public String editar_form(@PathVariable("id") Integer id, Model model) {
-		EquipeModel tm = this.equipeService.getEquipes(id);
-		model.addAttribute("id", tm.getId_Equipe());
-		model.addAttribute("nome", tm.getNome_Equipe());
+		List<GincanaModel> list = this.gincanaService.getGincanas();
+		List<CursoModel> list2 = this.cursoService.getCursos();
+		List<UsuarioModel> list3 = this.usuarioService.getUsuarios();
+
+		EquipeModel em = this.equipeService.getEquipes(id);
+		model.addAttribute("id_Equipe", em.getId_Equipe());
+		model.addAttribute("nome_Equipe", em.getNome_Equipe());
+		model.addAttribute("descricao_Equipe", em.getDescricao_Equipe());
+		model.addAttribute("id_Gincana", em.getGincana().getId_Gincana());
+		model.addAttribute("id_Curso", em.getCurso().getId_Curso());
+		model.addAttribute("id_Usuario", em.getUsuario().getId_Usuario());
+		model.addAttribute("gincanas", list);
+		model.addAttribute("cursos", list2);
+		model.addAttribute("usuarios", list3);
 		model.addAttribute("readonly", true);
 		return "equipe/editar_form";
 	}
-	
+
 	@PostMapping("/editar")
-	public String editar(@ModelAttribute EquipeModel equipeModel, Model model) {
-		EquipeModel tm = this.equipeService.getEquipes(equipeModel.getId_Equipe());
-		tm.setNome_Equipe( equipeModel.getNome_Equipe() );
-		equipeService.update(tm);
+	public String editar(@ModelAttribute EquipeTelaModel equipeTelaModel, Model model) {
+
+		GincanaModel gm = this.gincanaService.getGincana(equipeTelaModel.getGincana());
+		CursoModel cm = this.cursoService.getCurso(equipeTelaModel.getCurso());
+		UsuarioModel um = this.usuarioService.getUsuario(equipeTelaModel.getUsuario());
+
+		EquipeModel em = this.equipeService.getEquipes(equipeTelaModel.getId_Equipe());
+		em.setNome_Equipe(equipeTelaModel.getNome_Equipe());
+		em.setDescricao_Equipe(equipeTelaModel.getDescricao_Equipe());
+		em.setGincana(gm);
+		em.setCurso(cm);
+		em.setUsuario(um);
+		equipeService.update(em);
 		return "redirect:/equipe/";
 	}
-	
+
 	@GetMapping("/dashboard_equipe")
 	public String dashboard_equipe() {
 		return "/equipe/dashboard_equipe";
 	}
-	
+
 	@GetMapping("/indexdashboard_equipe")
 	public String indexdashboard_equipe() {
 		return "/equipe/indexdashboard_equipe";
 	}
-	
-	
-	
-	/*@GetMapping("/modificar_status/{id}")
-	public String modificar_status(@PathVariable("id") Integer id) {
-		EquipeModel tm = this.equipeService.getEquipe(id);
-		if (!tm.getStatus()) {
-			tm.setData_conclusao( new Date(System.currentTimeMillis()) );
-		}
-		else {
-			tm.setData_conclusao( null );
-		}
-		tm.setStatus( !tm.getStatus() );
-		equipeService.update(tm);
-		return "redirect:/equipe/";
-	}*/
+
 }
