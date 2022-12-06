@@ -90,11 +90,11 @@ public class GincanaController {
 	@PostMapping("/editar")
 	public String editar(@ModelAttribute GincanaTelaModel gincanaTelaModel, Model model) {
 
-		System.out.println("gincanaModel: " + gincanaTelaModel);
-		System.out.println("model: " + model);
+		System.out.println("model -------------------------------------> " + model);
 
+		System.out.println("model -------------------------------------> " + gincanaTelaModel);
+		
 		StatusModel sm = this.statusService.getStatus(gincanaTelaModel.getStatus());
-		System.out.println("StatusModel: " + sm);
 
 		GincanaModel gm = this.gincanaService.getGincana(gincanaTelaModel.getId_Gincana());
 		gm.setNome_Gincana(gincanaTelaModel.getNome_Gincana());
