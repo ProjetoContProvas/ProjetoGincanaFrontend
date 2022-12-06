@@ -99,6 +99,43 @@ public class GaleriaController {
 		return "redirect:/galeria/";
 	}
 	
+	@GetMapping("/indexdashboard")
+	public String desenvolvedores() {
+		return "imagem/indexdashboard";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

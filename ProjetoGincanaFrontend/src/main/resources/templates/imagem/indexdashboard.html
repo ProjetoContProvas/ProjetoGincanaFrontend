@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from themepixels.com/demo/webpage/chain/calendar.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Aug 2014 12:22:26 GMT -->
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Chain Responsive Bootstrap3 Admin</title>
+
+        <link href="/css/style.default.css" rel="stylesheet">
+        <link href="/css/style.calendar.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        
+         <div th:replace="/comum/header"></div>
+        
+        
+        <section>
+        
+       	<div th:replace="/comum/leftpanel"></div>
+        
+            
+                
+               
+                    
+                    
+                        
+                       
+      
+                        <div class="row">
+                          <div class="col-sm-9">
+                            <div class="row media-manager">
+                              
+                             
+                              
+                              <div class="col-xs-6 col-sm-4 col-md-3 image">
+                                <div class="thmb">
+                                  
+                                  
+                                  <div class="thmb-prev">
+                                    <a href="https://img.freepik.com/fotos-gratis/amor-romance-perfurado-coracao-de-papel_53876-87.jpg?w=2000" data-rel="prettyPhoto">
+                                      <img src="https://img.freepik.com/fotos-gratis/amor-romance-perfurado-coracao-de-papel_53876-87.jpg?w=2000" class="img-responsive" alt="" />
+                                    </a>
+                                  </div>
+                                  <h5 class="fm-title"><a href="#">Vegetarian.png</a></h5>
+                                  <small class="text-muted">Added: Jan 02, 2014</small>
+                                </div><!-- thmb -->
+                              </div><!-- col-xs-6 -->
+                              
+                             
+                          
+                            </div><!-- row -->
+                            
+                            <br />
+                          
+                            
+                            
+                          </div><!-- col-sm-9 -->
+                          <div class="col-sm-3">
+                            <div class="media-manager-sidebar">
+                              
+                              <button class="btn btn-primary btn-block">Upload Files</button>
+                              
+                              
+                              
+                            </div>
+                          </div><!-- col-sm-3 -->
+                        </div>
+                      </div>
+                    
+                    </div><!-- contentpanel -->
+                    
+                
+            </div><!-- mainwrapper -->
+        </section>
+
+
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/modernizr.min.js"></script>
+        <script src="js/pace.min.js"></script>
+        <script src="js/retina.min.js"></script>
+        <script src="js/jquery.cookies.js"></script>
+        
+        <script src="js/jquery.prettyPhoto.js"></script>
+
+        <script src="js/custom.js"></script>
+        <script>
+            jQuery(document).ready(function(){
+    
+                jQuery('.thmb').hover(function() {
+                    var t = jQuery(this);
+                    t.find('.ckbox').show();
+                    t.find('.fm-group').show();
+                }, function() {
+      
+                    var t = jQuery(this);
+                    if(!t.closest('.thmb').hasClass('checked')) {
+                        t.find('.ckbox').hide();
+                        t.find('.fm-group').hide();
+                    }
+                });
+    
+                jQuery('.ckbox').each(function(){
+                    var t = jQuery(this);
+                    var parent = t.parent();
+                    if(t.find('input').is(':checked')) {
+                        t.show();
+                        parent.find('.fm-group').show();
+                        parent.addClass('checked');
+                    }
+                });
+    
+    
+                jQuery('.ckbox').click(function(){
+                    var t = jQuery(this);
+                    if(!t.find('input').is(':checked')) {
+                        t.closest('.thmb').removeClass('checked');
+                        enable_itemopt(false);
+                    } else {
+                        t.closest('.thmb').addClass('checked');
+                        enable_itemopt(true);
+                    }
+                });
+    
+                jQuery('#selectAll').click(function() {
+                    if(jQuery(this).hasClass('btn-default')) {
+                        jQuery('.thmb').each(function() {
+                            jQuery(this).find('input').attr('checked',true);
+                            jQuery(this).addClass('checked');
+                            jQuery(this).find('.ckbox, .fm-group').show();
+                        });
+                        enable_itemopt(true);
+                        jQuery(this).removeClass('btn-default').addClass('btn-primary');
+                        jQuery(this).text('Select None');
+                    } else {
+                        jQuery('.thmb').each(function(){
+                            jQuery(this).find('input').attr('checked',false);
+                            jQuery(this).removeClass('checked');
+                            jQuery(this).find('.ckbox, .fm-group').hide();
+                        });
+                        enable_itemopt(false);
+                        jQuery(this).removeClass('btn-primary').addClass('btn-default');
+                        jQuery(this).text('Select All');
+                    }
+                });
+    
+                function enable_itemopt(enable) {
+                    if(enable) {
+                        jQuery('.media-options .btn.disabled').removeClass('disabled').addClass('enabled');
+                    } else {
+        
+                        // check all thumbs if no remaining checks
+                        // before we can disabled the options
+                        var ch = false;
+                        jQuery('.thmb').each(function(){
+                            if(jQuery(this).hasClass('checked'))
+                                ch = true;
+                        });
+        
+                        if(!ch)
+                            jQuery('.media-options .btn.enabled').removeClass('enabled').addClass('disabled');
+                    }
+                }
+    
+                jQuery("a[data-rel^='prettyPhoto']").prettyPhoto();
+    
+            });
+        </script>
+    </body>
+
+<!-- Mirrored from themepixels.com/demo/webpage/chain/media-manager.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Aug 2014 12:22:35 GMT -->
+</html>
