@@ -97,7 +97,8 @@
 												<option value="0">Selecione uma Opção</option>
 												<option th:each="status : ${list_status}"
 													th:value="${status.id_Status}"
-													th:text="${status.situacao_Status}">
+													th:text="${status.situacao_Status}"
+													th:selected="(${status.id_Status} == *{id_Status})">
 												</option>
 											</select>
 										</div>
