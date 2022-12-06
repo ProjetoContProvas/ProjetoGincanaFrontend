@@ -1,6 +1,5 @@
 package br.edu.ifba.frontend.controller;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +18,16 @@ import br.edu.ifba.frontend.service.GincanaService;
 import br.edu.ifba.frontend.service.StatusService;
 import br.edu.ifba.frontend.tela.GincanaTelaModel;
 
-
 @Controller
 @RequestMapping(value = "/gincana")
 public class GincanaController {
-	
+
 	@Autowired
 	private GincanaService gincanaService;
-	
+
 	@Autowired
 	private StatusService statusService;
-	
+
 	@GetMapping("/")
 	public String index(Model model) {
 		System.out.println("gincanas_lista - init");
@@ -43,19 +41,19 @@ public class GincanaController {
 	public String adicionar_form(Model model) {
 		StatusService statusService = new StatusService();
 		List<StatusModel> list = this.statusService.getListStatus();
-		model.addAttribute("list_status",list);
+		model.addAttribute("list_status", list);
 		return "gincana/adicionar_form";
 	}
-	
+
 	@PostMapping("/adicionar")
 	public String adicionar(@ModelAttribute GincanaTelaModel gincanaTelaModel, Model model) {
-		System.out.println("insert: " + gincanaTelaModel.getDescricao_Gincana());
-		
-		
+		System.out.println("insert: " + gincanaTelaModel);
+
 		StatusModel sm = new StatusModel();
-		sm.setId_Status(gincanaTelaModel.getId_Status());
-		
+		sm.setId_Status(gincanaTelaModel.getStatus());
+
 		GincanaModel gm = new GincanaModel();
+
 		gm.setNome_Gincana(gincanaTelaModel.getNome_Gincana());
 		gm.setDescricao_Gincana(gincanaTelaModel.getDescricao_Gincana());
 		gm.setData_inicio_Gincana(gincanaTelaModel.getData_inicio_Gincana());
@@ -64,18 +62,18 @@ public class GincanaController {
 		gincanaService.insert(gm);
 		return "redirect:/gincana/";
 	}
-	
-	@RequestMapping(value="/deletar/{id}", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/deletar/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable("id") Integer id) {
 		Boolean boo = this.gincanaService.deleteGincana(id);
 		return "redirect:/gincana/";
 	}
-	
+
 	@GetMapping("/editar_form/{id}")
 	public String editar_form(@PathVariable("id") Integer id, Model model) {
-		
+
 		List<StatusModel> list = this.statusService.getListStatus();
-		//System.out.println("editar_form: " + list);
+		// System.out.println("editar_form: " + list);
 
 		GincanaModel gm = this.gincanaService.getGincana(id);
 		model.addAttribute("id_Gincana", gm.getId_Gincana());
@@ -88,16 +86,16 @@ public class GincanaController {
 		model.addAttribute("readonly", true);
 		return "gincana/editar_form";
 	}
-	
+
 	@PostMapping("/editar")
 	public String editar(@ModelAttribute GincanaTelaModel gincanaTelaModel, Model model) {
-		
+
 		System.out.println("gincanaModel: " + gincanaTelaModel);
 		System.out.println("model: " + model);
-		
-		StatusModel sm = this.statusService.getStatus( gincanaTelaModel.getId_Status() );		
+
+		StatusModel sm = this.statusService.getStatus(gincanaTelaModel.getStatus());
 		System.out.println("StatusModel: " + sm);
-		
+
 		GincanaModel gm = this.gincanaService.getGincana(gincanaTelaModel.getId_Gincana());
 		gm.setNome_Gincana(gincanaTelaModel.getNome_Gincana());
 		gm.setDescricao_Gincana(gincanaTelaModel.getDescricao_Gincana());
@@ -107,18 +105,17 @@ public class GincanaController {
 		gincanaService.update(gm);
 		return "redirect:/gincana/";
 	}
-	
-	/*@PostMapping("/editar_status")
-	public String editar(@ModelAttribute GincanaTelaModel tarefaTelaModel, Model model) {
-		System.out.println("Tarefa - modificar - insert: " + tarefaTelaModel);
-		StatusModel sm = new StatusModel();
-		sm.setId_status(tarefaTelaModel.getId_status());
-		
-		TarefaModel tm = this.tarefaService.getTarefa(tarefaTelaModel.getId());
-		tm.setDescricao( tarefaTelaModel.getDescricao() );
-		tm.setStatus( sm );
-		tarefaService.update(tm);
-		return "redirect:/tarefa/";
-	}*/
+
+	/*
+	 * @PostMapping("/editar_status") public String editar(@ModelAttribute
+	 * GincanaTelaModel tarefaTelaModel, Model model) {
+	 * System.out.println("Tarefa - modificar - insert: " + tarefaTelaModel);
+	 * StatusModel sm = new StatusModel();
+	 * sm.setId_status(tarefaTelaModel.getId_status());
+	 * 
+	 * TarefaModel tm = this.tarefaService.getTarefa(tarefaTelaModel.getId());
+	 * tm.setDescricao( tarefaTelaModel.getDescricao() ); tm.setStatus( sm );
+	 * tarefaService.update(tm); return "redirect:/tarefa/"; }
+	 */
 
 }
