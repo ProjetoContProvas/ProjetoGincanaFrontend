@@ -38,11 +38,11 @@
 										<label class="col-sm-3 control-label">Nome<span
 												class="asterisk">*</span></label>
 										<div class="col-sm-9">
-											<input type="text" id="nome_Usuario" name="nome_Usuario" class="form-control"
-												placeholder="nome do usuário" required />
+											<input type="text" id="nome_Usuario" name="nome_Usuario"
+												class="form-control" placeholder="nome do usuário" required />
 										</div>
 									</div><!-- form-group -->
-									
+
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Email<span
 												class="asterisk">*</span></label>
@@ -51,47 +51,51 @@
 												class="form-control" placeholder="email do usuário" required />
 										</div>
 									</div><!-- form-group -->
-									
+
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Senha<span
 												class="asterisk">*</span></label>
 										<div class="col-sm-9">
-											<input type="text" id="senha_Usuario" name="senha_Usuario" class="form-control"
-												placeholder="senha do usuário" required />
+											<input type="text" id="senha_Usuario" name="senha_Usuario"
+												class="form-control" placeholder="senha do usuário" required />
 										</div>
 									</div><!-- form-group -->
-									
+
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Sexo<span
 												class="asterisk">*</span></label>
 										<div class="col-sm-9">
-											<input type="text" id="sexo_Usuario" name="sexo_Usuario" class="form-control"
-												placeholder="sexo do usuário" required />
+											<input type="text" id="sexo_Usuario" name="sexo_Usuario"
+												class="form-control" placeholder="sexo do usuário" required />
 										</div>
 									</div><!-- form-group -->
 
-								
-									
+
+
 									<div class="form-group">
-							            
-							
-										<label class="col-sm-3 control-label">Gincana<span class="asterisk">*</span></label>
+
+
+										<label class="col-sm-3 control-label">Gincana<span
+												class="asterisk">*</span></label>
 										<div class="col-sm-9">
-											<select class="form-control"  name="gincana">
-											    <option value="0">Gincana</option>
-											    <option th:each="gincana : ${gincanas}" th:value="${gincana.id_Gincana}" th:text="${gincana.nome_Gincana}"></option>
+											<select class="form-control" name="gincana">
+												<option value="0">Gincana</option>
+												<option th:each="gincana : ${gincanas}" th:value="${gincana.id_Gincana}"
+													th:text="${gincana.nome_Gincana}"></option>
 											</select>
-											
-									</div><!-- form-group -->
-									
-										</div>
-										<label class="col-sm-3 control-label">Perfil do Usuário<span class="asterisk">*</span></label>
-										<div class="col-sm-9">
-											<select class="form-control"  name="perfil">
-											    <option value="0">Selecione uma Opção</option>
-											    <option th:each="perfil : ${perfis}" th:value="${perfil.id_Perfil}" th:text="${perfil.cargo_Perfil}"></option>
-											</select>
-											
+
+										</div><!-- form-group -->
+
+									</div>
+									<label class="col-sm-3 control-label">Perfil do Usuário<span
+											class="asterisk">*</span></label>
+									<div class="col-sm-9">
+										<select class="form-control" name="perfil">
+											<option value="0">Selecione uma Opção</option>
+											<option th:each="perfil : ${perfis}" th:value="${perfil.id_Perfil}"
+												th:text="${perfil.cargo_Perfil}"></option>
+										</select>
+
 									</div><!-- form-group -->
 
 								</div><!-- row -->
