@@ -19,7 +19,7 @@ public class EquipeService {
 	@Autowired
 	private WebClient webClient;
 
-	public EquipeModel getEquipes(Integer id) {
+	public EquipeModel getEquipe(Integer id) {
 
 		Mono<EquipeModel> equipeModel = this.webClient.method(HttpMethod.GET)
 													  .uri("equipe/{id}", id)

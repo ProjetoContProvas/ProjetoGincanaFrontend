@@ -88,5 +88,11 @@ public class ImagemController {
 		imagemService.update(sm);
 		return "redirect:/imagem/";
 	}
+	
+	@GetMapping("/indexdashboard")
+	public String indexdashboard(){
+		return"imagem/indexdashboard";
+		
+	}
 
 }
