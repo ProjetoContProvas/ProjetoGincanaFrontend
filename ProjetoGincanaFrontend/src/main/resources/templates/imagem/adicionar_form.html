@@ -18,8 +18,10 @@
 						</ul>
 						<h4>Nova Imagem</h4>
 					</div>
-				</div><!-- media -->
-			</div><!-- pageheader -->
+				</div>
+				<!-- media -->
+			</div>
+			<!-- pageheader -->
 
 
 
@@ -29,36 +31,45 @@
 						<div class="panel-heading">
 							<h4 class="panel-title">Imagem</h4>
 							<p>Tela de upload de imagem</p>
-						</div><!-- panel-heading -->
+						</div>
+						<!-- panel-heading -->
 
 
-						<form method="POST" id="basicForm" th:action="@{/imagem/adicionar}">
+						<form method="POST" id="basicForm"
+							th:action="@{/imagem/adicionar}">
 							<div class="panel-body">
 								<div class="row">
 									<div class="form-group">
-										<label class="col-sm-3 control-label">URL<span class="asterisk">*</span></label>
+										<label class="col-sm-3 control-label">URL da Imagem<span
+											class="asterisk">*</span></label>
 										<div class="col-sm-9">
-											<input type="text" id="URL_Imagem" name="URL_Imagem" class="form-control"
-												placeholder="nome da galeria" required />
+											<input type="text" id="URL_Imagem" name="URL_Imagem"
+												class="form-control" placeholder="URL da Imagem" required />
 										</div>
-									</div><!-- form-group -->
+									</div>
+									<!-- form-group -->
 
 									<div class="form-group">
+
+
 										<label class="col-sm-3 control-label">Galeria<span
-												class="asterisk">*</span></label>
+											class="asterisk">*</span></label>
 										<div class="col-sm-9">
 											<select class="form-control" name="galeria">
-												<option value="0">Gincana</option>
-												<option th:each="galeria : ${list_galeria}"
-													th:value="${galeria.id_Galeria}" th:text="${gincana.nome_Galeria}">
-												</option>
+												<option value="0">Galeria</option>
+												<option th:each="galeria : ${galerias}"
+													th:value="${galeria.id_Galeria}"
+													th:text="${galeria.nome_Galeria}"></option>
 											</select>
 
-										</div><!-- form-group -->
+										</div>
+										<!-- form-group -->
 
 
-									</div><!-- row -->
-								</div><!-- panel-body -->
+									</div>
+									<!-- row -->
+								</div>
+								<!-- panel-body -->
 								<div class="panel-footer">
 									<div class="row">
 										<a href="/imagem/" class="btn btn-success">Voltar</a>
@@ -66,15 +77,17 @@
 										<button type="reset" class="btn btn-dark">Limpar</button>
 									</div>
 
-								</div><!-- panel -->
+								</div>
+								<!-- panel -->
 						</form>
 
-					</div><!-- panel -->
+					</div>
+					<!-- panel -->
 
 				</div>
 
-			</div><!-- contentpanel -->
-
+			</div>
+			<!-- contentpanel -->
 </section>
 
 <div th:replace="comum/down"></div>
