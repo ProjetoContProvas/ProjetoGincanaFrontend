@@ -19,15 +19,17 @@ public class ImagemService {
 	@Autowired
 	private WebClient webClient;
 	
-	public ImagemModel getImagem(Integer id) {
+public ImagemModel getImagem(Integer id) {
 		
 		Mono<ImagemModel> imagemModel = this.webClient
 											.method(HttpMethod.GET)
-											.uri("status/{id}", id)
+											.uri("imagem/{id}", id)
 											.retrieve()
 											.bodyToMono(ImagemModel.class);
 		
 		ImagemModel im = imagemModel.block();
+		
+		System.out.println("0000000000000000000000000000000000000000000----------------"+ im);
 		return im;
 	}
 	

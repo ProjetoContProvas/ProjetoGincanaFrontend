@@ -5,12 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class CursoModel {
 	private Integer id_Curso;
 	private String nome_Curso;
 	private String modalidade_Curso;
+
+	public CursoModel() {
+		super();
+	}
+
+	public CursoModel(Integer id_Curso, String nome_Curso, String modalidade_Curso) {
+		super();
+		this.id_Curso = id_Curso;
+		this.nome_Curso = nome_Curso;
+		this.modalidade_Curso = modalidade_Curso;
+	}
 
 	public Integer getId_Curso() {
 		return id_Curso;

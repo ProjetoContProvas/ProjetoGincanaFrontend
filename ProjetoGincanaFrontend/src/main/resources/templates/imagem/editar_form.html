@@ -14,10 +14,9 @@
 					<div class="media-body">
 						<ul class="breadcrumb">
 							<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
-							<li><a href="/curso">Cursos</a></li>
+							<li><a href="/galeria/">Cadastros / Imagens</a></li>
 						</ul>
-						<h4>Novo Curso</h4>
-
+						<h4>Editar Imagem</h4>
 					</div>
 				</div>
 				<!-- media -->
@@ -29,49 +28,46 @@
 				<div class="row">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h4 class="panel-title">Novo Curso</h4>
-							<p>Tela criação de um novo curso</p>
+							<h4 class="panel-title">Imagem</h4>
+							<p>Tela de edição de imagens</p>
 						</div>
 						<!-- panel-heading -->
 
 
-						<form method="POST" id="basicForm" th:action="@{/curso/editar}">
+						<form method="POST" id="basicForm" th:action="@{/imagem/editar}">
 							<div class="panel-body">
 								<div class="row">
-
-
 									<div class="form-group">
-
-										<label class="col-sm-3 control-label">Nome do Curso<span
-											class="asterisk">*</span>
-										</label>
+										<label class="col-sm-3 control-label">Nome<span
+											class="asterisk">*</span></label>
 										<div class="col-sm-9">
-											<input hidden type="textarea" id="id_Curso" name="id_Curso"
-												th:value="${id_Curso}" /> <input type="textarea"
-												id="nome_Curso" name="nome_Curso" class="form-control"
-												th:value="${nome_Curso}" required />
-										</div>
-									</div>
-									<!-- form-group -->
-									
-									<div class="form-group">
-
-										<label class="col-sm-3 control-label">Modalidade do Curso<span
-											class="asterisk">*</span>
-										</label>
-										<div class="col-sm-9">
-											<input hidden type="textarea" id="id_Curso" name="id_Curso"
-												th:value="${id_Curso}" /> <input type="textarea"
-												id="modalidade_Curso" name="modalidade_Curso" class="form-control"
-												th:value="${modalidade_Curso}" required />
+											<input hidden type="textarea" id="id_Imagem"
+												name="id_Imagem" th:value="${id_Imagem}" /> 
+												<input
+												type="textarea" id="URL_Imagem" name="URL_Imagem"
+												class="form-control" th:value="${URL_Imagem}"
+												placeholder="URL da Imagem" required />
 										</div>
 									</div>
 									<!-- form-group -->
 
 									
 
-
-
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Galeria<span
+											class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control" name="galeria">
+												<option value="0">Selecione uma Opção</option>
+												<option th:each="galeria : ${galerias}"
+													th:value="${galeria.id_Galeria}"
+													th:text="${galeria.nome_Galeria}"
+													th:selected="(${galeria.id_Galeria} == *{id_Galeria})">
+												</option>
+											</select>
+										</div>
+									</div> 
+									<!-- form-group -->
 
 
 								</div>
@@ -80,7 +76,7 @@
 							<!-- panel-body -->
 							<div class="panel-footer">
 								<div class="row">
-									<a href="/curso/" class="btn btn-success">Voltar</a>
+									<a href="/imagem/" class="btn btn-success">Voltar</a>
 									<button type="submit" class="btn btn-primary">Salvar</button>
 									<button type="reset" class="btn btn-dark">Limpar</button>
 								</div>

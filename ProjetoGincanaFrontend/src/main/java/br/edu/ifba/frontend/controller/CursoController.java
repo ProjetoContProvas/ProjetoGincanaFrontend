@@ -24,9 +24,8 @@ public class CursoController {
 	
 	@GetMapping("/")
 	public String index(Model model) {
-		System.out.println("tarefas_lista - init");
 		List<CursoModel> list = this.cursoService.getCursos();
-		model.addAttribute("tarefas", list);
+		model.addAttribute("cursos", list);
 		return "curso/index";
 	}
 
@@ -57,6 +56,8 @@ public class CursoController {
 		model.addAttribute("id_Curso", tm.getId_Curso());
 		model.addAttribute("nome_Curso", tm.getNome_Curso());
 		model.addAttribute("modalidade_Curso", tm.getModalidade_Curso());
+		model.addAttribute("readonly", true);
+
 		return "curso/editar_form";
 	}
 	
@@ -64,6 +65,7 @@ public class CursoController {
 	public String editar(@ModelAttribute CursoModel cursoModel, Model model) {
 		CursoModel tm = this.cursoService.getCurso(cursoModel.getId_Curso());
 		tm.setNome_Curso(cursoModel.getNome_Curso());
+		tm.setModalidade_Curso(cursoModel.getModalidade_Curso());
 		cursoService.update(tm);
 		return "redirect:/curso/";
 	}
