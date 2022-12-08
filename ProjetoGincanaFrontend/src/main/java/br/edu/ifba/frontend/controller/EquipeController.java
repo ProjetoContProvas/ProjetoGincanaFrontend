@@ -122,10 +122,15 @@ public class EquipeController {
 	}
 
 	@GetMapping("/dashboard_equipe")
-	public String dashboard_equipe() {
-		return "/equipe/dashboard_equipe";
+	public String dashboard_equipe(Model model) {
+		List<EquipeModel> list = this.equipeService.getEquipes();
+		
+		model.addAttribute("equipes", list);
+		model.addAttribute("readonly", true);
+		return "equipe/dashboard_equipe";
 	}
 
+	
 	@GetMapping("/indexdashboard_equipe")
 	public String indexdashboard_equipe() {
 		return "/equipe/indexdashboard_equipe";
