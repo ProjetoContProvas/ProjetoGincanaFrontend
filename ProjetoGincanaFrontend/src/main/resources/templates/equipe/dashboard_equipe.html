@@ -22,43 +22,92 @@
 				</div><!-- media -->
 			</div><!-- pageheader -->
 			<div class="contentpanel">
-			
-				<div class="row row-stat">
+
+				<div class="row row-stat"> </div>
+
+
+				<ol th:each="equipe : ${equipes}">
+
+
 					<a href="/equipe/indexdashboard_equipe">
 						<div class="col-md-4">
-							<div class="panel panel-warning-alt noborder">
+
+							<div class="panel panel-danger-alt noborder">
+
 								<div class="panel-heading noborder">
 									<div class="panel-btns">
 
 									</div><!-- panel-btns -->
-									<div class="panel-icon"><i class="fa fa-users"></i></div>
 									<div class="media-body">
 
-										<h1 class="mt5">Equipe 1</h1>
+										<h1><td th:text="${equipe.nome_Equipe}"></td></h1>
+
+									
+										<table>
+
+								<hr>
+											<tbody>
+
+
+												<tr>
+
+
+													<td></td>
+												<h2>
+												<td th:text="${equipe.descricao_Equipe}"></td>
+												</h2>
+													<td></td>
+												
+
+												</tr>
+
+
+											</tbody>
+
+
+
+
+
+										</table>
+
+										<table>
+
+
+											<tbody>
+
+
+												<tr>
+
+
+												</tr>
+
+
+											</tbody>
+
+
+
+
+
+										</table>
+
+
 
 									</div><!-- media-body -->
-									<hr>
-									<div class="clearfix mt20">
-										<div class="pull-left">
-											<h5 class="md-title nomargin">Curso</h5>
-											<h4 class="nomargin">---</h4>
-										</div>
-										<div class="pull-right">
-											<h5 class="md-title nomargin">Pontuação</h5>
-											<h4 class="nomargin">---</h4>
-										</div>
-									</div>
 
-								</div><!-- panel-body -->
-							</div><!-- panel -->
+
+
+
+
+
+								</div><!-- panel-heading noborder -->
+							</div><!-- panel panel-warning-alt noborder -->
+
+						</div><!-- col-md-4 -->
 					</a>
-				</div><!-- col-md-4 -->
 
-				
 
-				<div>
-					<a href="/dashboard" class="btn btn-success">Voltar</a>
-				</div>
+
+				</ol>
 
 
 			</div><!-- contentpanel -->
