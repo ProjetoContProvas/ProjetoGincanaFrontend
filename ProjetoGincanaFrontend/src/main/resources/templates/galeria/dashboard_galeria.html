@@ -37,91 +37,36 @@
 
 
 				<ol th:each="galeria : ${galerias}">
+		
 				
-				
+			
+			
 
 						<a href="/imagem/indexdashboard">
 							<div class="col-md-4">
 							
 							   <div class="panel panel-warning-alt noborder">
-							   
+							        
+									
 							      <div class="panel-heading noborder">
+							      <div class="panel-btns">
+
+									</div><!-- panel-btns -->
 							      <div class="media-body">
 							      
-							      <h1>Galeria</h1>
+							      <h1><td th:text="${galeria.nome_Galeria}"></td></h1>
 
-										<table>
-										  
-										
-										   <tbody>
-										   
-										   
-										          <tr>
-										          
-										                 <td th:text="${galeria.nome_Galeria}"></td>
-										                 <td></td>
-										                 <td></td>
-										             
-										                 
-										          </tr>
+	<br>
+									
 										
 										
-										   </tbody>
-										
-										
-										
-										
-										
-										</table>
-										
-										<table>
-										  
-										
-										   <tbody>
-										   
-										   
-										          <tr>
-										          
-										             
-										                 <td></td>
 										                 <td th:text="${galeria.descricao_Galeria}"></td>
 										                 <td></td>
 										                 <td></td>
 										             
-										          </tr>
-										
-										
-										   </tbody>
-										
-										
-										
-										
-										
-										</table>
-										
-										<table>
-										  
-										
-										   <tbody>
-										   
-										   
-										          <tr>
-										          
-										              
-										                 <td th:text="${galeria.nome_Galeria}"></td>
-										                 <td></td>
-										                 
-										          </tr>
-										
-										
-										   </tbody>
-										
-										
-										
-										
-										
-										</table>
-										
+										       
+										<br>
+							
 
 
 									 </div><!-- media-body -->
@@ -137,13 +82,9 @@
 							</div><!-- col-md-4 -->
 						</a>
 
-					
+			
               
 				</ol>
-
-
-
-
 
 
 
