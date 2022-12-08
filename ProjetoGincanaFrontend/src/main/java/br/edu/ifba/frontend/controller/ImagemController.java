@@ -90,9 +90,15 @@ public class ImagemController {
 	}
 	
 	@GetMapping("/indexdashboard")
-	public String indexdashboard(){
+	public String indexdashboard(Model model){
+		List<ImagemModel> list = this.imagemService.getListImagem();
+		model.addAttribute("imagens", list);
+		model.addAttribute("readonly", true);
 		return"imagem/indexdashboard";
 		
 	}
+	
+	
+	
 
 }
