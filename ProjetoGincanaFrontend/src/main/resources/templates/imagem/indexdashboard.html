@@ -56,19 +56,19 @@
                                   </div><!-- btn-group -->
                                   <div class="thmb-prev">
                                     <a href="https://img.freepik.com/fotos-gratis/amor-romance-perfurado-coracao-de-papel_53876-87.jpg?w=2000" data-rel="prettyPhoto">
-                                      <img src="th:text="${imagem.URL_Imagem}" " class="img-responsive" alt="" />
+                                      <img th:src=${imagem.URL_Imagem} style="width:270px;height:180px;"  />
                                     </a>
                                   </div>
-                                  <h5 class="fm-title"><a href="#">Vegetarian.png</a></h5>
-                                  <small class="text-muted">Added: Jan 02, 2014</small>
+                                  <h5 class="fm-title"><td th:text="${imagem.galeria.nome_Galeria}"></td></h5>
+                                  <small class="text-muted"><td
+											th:text="${imagem.galeria.gincana.nome_Gincana}"></td></small>
                                 </div><!-- thmb -->
                               </div><!-- col-xs-6 -->
                               
-                              
-                              <h1><td th:text="${imagem.URL_Imagem}"></td></h1>
-                              
+                          
                               
                               
+                          
                               
                               
                                </ol>  
