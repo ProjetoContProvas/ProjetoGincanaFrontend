@@ -18,8 +18,10 @@
 						</ul>
 						<h4>Editar Status</h4>
 					</div>
-				</div><!-- media -->
-			</div><!-- pageheader -->
+				</div>
+				<!-- media -->
+			</div>
+			<!-- pageheader -->
 
 
 			<div class="contentpanel">
@@ -28,24 +30,31 @@
 						<div class="panel-heading">
 							<h4 class="panel-title">Status</h4>
 							<p>Tela de edição de status</p>
-						</div><!-- panel-heading -->
+						</div>
+						<!-- panel-heading -->
 
 
 						<form method="POST" id="basicForm" th:action="@{/status/editar}">
 							<div class="panel-body">
 								<div class="row">
 									<div class="form-group">
-										<label class="col-sm-3 control-label">Situação do Status<span
-												class="asterisk">*</span></label>
+										<label class="col-sm-3 control-label">Situação do
+											Status<span class="asterisk">*</span>
+										</label>
 										<div class="col-sm-9">
-											<input hidden type="textarea" id="id_Status" name="id_Status" th:value="${id_Status}" />
-											<input type="textarea" id="situacao_Status" name="situacao_Status" class="form-control"
-												th:value="${situacao}" placeholder="nome do status" required />
+											<input hidden type="textarea" id="id_Status" name="id_Status"
+												th:value="${id_Status}" /> <input type="textarea"
+												id="situacao_Status" name="situacao_Status"
+												class="form-control" th:value="${situacao}"
+												placeholder="nome do status" required />
 										</div>
-									</div><!-- form-group -->
-																	
-								</div><!-- row -->
-							</div><!-- panel-body -->
+									</div>
+									<!-- form-group -->
+
+								</div>
+								<!-- row -->
+							</div>
+							<!-- panel-body -->
 							<div class="panel-footer">
 								<div class="row">
 									<a href="/gincana/" class="btn btn-success">Voltar</a>
@@ -53,15 +62,17 @@
 									<button type="reset" class="btn btn-dark">Limpar</button>
 								</div>
 
-							</div><!-- panel -->
+							</div>
+							<!-- panel -->
 						</form>
 
-					</div><!-- panel -->
+					</div>
+					<!-- panel -->
 
 				</div>
 
-			</div><!-- contentpanel -->
-
+			</div>
+			<!-- contentpanel -->
 </section>
 
 <div th:replace="comum/down"></div>

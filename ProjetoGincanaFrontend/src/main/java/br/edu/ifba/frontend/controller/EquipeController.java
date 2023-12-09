@@ -90,7 +90,7 @@ public class EquipeController {
 		List<CursoModel> list2 = this.cursoService.getCursos();
 		List<UsuarioModel> list3 = this.usuarioService.getUsuarios();
 
-		EquipeModel em = this.equipeService.getEquipes(id);
+		EquipeModel em = this.equipeService.getEquipe(id);
 		model.addAttribute("id_Equipe", em.getId_Equipe());
 		model.addAttribute("nome_Equipe", em.getNome_Equipe());
 		model.addAttribute("descricao_Equipe", em.getDescricao_Equipe());
@@ -111,7 +111,7 @@ public class EquipeController {
 		CursoModel cm = this.cursoService.getCurso(equipeTelaModel.getCurso());
 		UsuarioModel um = this.usuarioService.getUsuario(equipeTelaModel.getUsuario());
 
-		EquipeModel em = this.equipeService.getEquipes(equipeTelaModel.getId_Equipe());
+		EquipeModel em = this.equipeService.getEquipe(equipeTelaModel.getId_Equipe());
 		em.setNome_Equipe(equipeTelaModel.getNome_Equipe());
 		em.setDescricao_Equipe(equipeTelaModel.getDescricao_Equipe());
 		em.setGincana(gm);
@@ -122,13 +122,20 @@ public class EquipeController {
 	}
 
 	@GetMapping("/dashboard_equipe")
-	public String dashboard_equipe() {
-		return "/equipe/dashboard_equipe";
+	public String dashboard_equipe(Model model) {
+		List<EquipeModel> list = this.equipeService.getEquipes();
+		
+		model.addAttribute("equipes", list);
+		model.addAttribute("readonly", true);
+		return "equipe/dashboard_equipe";
 	}
 
+	
 	@GetMapping("/indexdashboard_equipe")
 	public String indexdashboard_equipe() {
 		return "/equipe/indexdashboard_equipe";
 	}
 
+	
+	
 }

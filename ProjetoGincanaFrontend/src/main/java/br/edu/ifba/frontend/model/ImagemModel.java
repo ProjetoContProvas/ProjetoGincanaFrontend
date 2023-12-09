@@ -1,16 +1,23 @@
 package br.edu.ifba.frontend.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class ImagemModel {
 	private Integer id_Imagem;
 	private String URL_Imagem;
 	private GaleriaModel galeria;
+
+	public ImagemModel() {
+		super();
+	}
+
+	public ImagemModel(Integer id_Imagem, String uRL_Imagem, GaleriaModel galeria) {
+		super();
+		this.id_Imagem = id_Imagem;
+		URL_Imagem = uRL_Imagem;
+		this.galeria = galeria;
+	}
 
 	public Integer getId_Imagem() {
 		return id_Imagem;

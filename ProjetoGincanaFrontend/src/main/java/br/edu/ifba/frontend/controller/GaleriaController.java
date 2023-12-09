@@ -75,13 +75,12 @@ public class GaleriaController {
 		List<GincanaModel> list = this.gincanaService.getGincanas();
 		
 		GaleriaModel gm = this.galeriaService.getGaleria(id);
+		System.out.println("------------------------->"+ gm);
 		model.addAttribute("id_Galeria", gm.getId_Galeria());
 		model.addAttribute("nome_Galeria", gm.getNome_Galeria());
 		model.addAttribute("descricao_Galeria", gm.getDescricao_Galeria());
 		model.addAttribute("id_Gincana", gm.getGincana().getId_Gincana());
 		model.addAttribute("gincanas", list);
-
-		
 		model.addAttribute("readonly", true);
 		return "galeria/editar_form";
 	}
@@ -100,9 +99,14 @@ public class GaleriaController {
 	}
 	
 	@GetMapping("/indexdashboard")
-	public String desenvolvedores() {
-		return "imagem/indexdashboard";
+	public String desenvolvedores(Model model) {
+		List<GaleriaModel> list = this.galeriaService.getGalerias();
+		
+		model.addAttribute("galerias", list);
+		model.addAttribute("readonly", true);
+		return "galeria/dashboard_galeria";
 	}
+	
 	
 	
 	

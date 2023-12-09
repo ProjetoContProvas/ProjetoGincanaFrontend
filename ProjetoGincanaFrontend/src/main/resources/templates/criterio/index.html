@@ -14,9 +14,9 @@
 						<div class="media-body">
 							<ul class="breadcrumb">
 								<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
-								<li><a href="/galeria/">Cadastros / Imagem</a></li>
+								<li><a href="/criterio/">Cadastros / Critérios</a></li>
 							</ul>
-							<h4>Lista de Imagens</h4>
+							<h4>Lista de Criterios de Provas</h4>
 						</div>
 					</div><!-- media -->
 				</div><!-- pageheader -->
@@ -26,31 +26,38 @@
 				<div class="row">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h4 class="panel-title">Imagens</h4>
-							<p>Tela para listagem das imagens</p>
+							<h4 class="panel-title">Critérios</h4>
+							<p>Tela para listagem das critérios</p>
 						</div><!-- panel-heading -->
 
 						<div  class="panel-body nopadding">
-							<a href="/imagem/adicionar_form" class="btn btn-primary" style="margin: 10px;">Novo</a>
+							<a href="/criterio/adicionar_form" class="btn btn-primary" style="margin: 10px;">Novo</a>
 							<div class="table-responsive">
 								<table class="table table-hidaction table-hover mb30">
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>URL</th>											
-										    <th></th>
-										     
+											<th>Nome</th>
+											<th>Pontuação Mínima</th>
+											<th>Pontuação Máxima</th>
+											<th>Prova</th>
+										    <th></th> 
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:each="imagem : ${imagens}">
-										<td th:text="${imagem.id_Imagem}"></td>
-									    <td th:text="${imagem.URL_Imagem}"></td>									
-										
-										<td>
-											<a th:href="@{/imagem/editar_form/{id}(id=${imagem.id_Imagem})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>											
-											<a th:href="@{/imagem/deletar/{id}(id=${imagem.id_Imagem})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
-										</td>
+										<tr th:each="criterio : ${criterios}">
+										<td th:text="${criterio.id_Criterio}"></td>
+											<td th:text="${criterio.nome_Criterio}"></td>
+											<td th:text="${criterio.pontuacao_min_Criterio}"></td>
+											<td th:text="${criterio.pontuacao_max_Criterio}"></td>
+											<td th:text="${criterio.evento.nome_Evento}"></td>
+											
+											
+											<td>
+											
+												<a th:href="@{/criterio/editar_form/{id}(id=${criterio.id_Criterio})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+												<a th:href="@{/criterio/deletar/{id}(id=${criterio.id_Criterio})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+											</td>
 										</tr>
 									</tbody>
 								</table>
@@ -59,7 +66,7 @@
 						</div><!-- panel-body -->
 
 						<div class="panel-footer">
-							<a href="/galeria/" class="btn btn-success" >Voltar</a>
+							<a href="/dashboard" class="btn btn-success" >Voltar</a>
 						</div><!-- panel-footer -->
 					</div><!-- panel -->
 

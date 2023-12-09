@@ -1,87 +1,30 @@
-# Orientações 
+# Resumo do Projeto
 
--Faça um fork do projeto !
+## O que é o Projeto Controle Gincana?
 
--Importe apenas a branch Master!
+O projeto controle gincana, é um projeto desenvolvido pelos alunos do 4º ano de informática do IFBA-Campus Paulo Afonso(Turma 2018), nas disciplinas (Estrutura de Dados, Banco de Dados, Lingugem de Programação II, Sistemas Operacionais e Biologia)
 
--Importe O Projeto no Sprint Tool Suite através de um repositorio git!
 
--Volte ao Redmi -> clique na pasta do arquivo Redmi -> clique na opção 'Display the source blob', para copiar as dependências do projeto!
+## Qual o proposito desse Projeto?
 
--Compie de (<?xml) até (/project>) e substitua as informações do pom.xml geradas no seu projeto !
+Tornar as gincanas anuais do IFBA-campus Paulo Afonso mais dinâmicas e organizadas. Por meio de um sistema, será possível informar a todos os internautas sobre informações da Gincana científica.
 
-# pom.xml
+## Qual metodologia foi usada para o desenvolvimento do sistema?
+A metodologia usada foi a Scrum, sendo os Product Owners, Professores(Othon Campus, Igor Costa e Rhuan Carvalho), Scrum master, Aluno(Mateus Lucas da Silva) e Dev Teams, Alunos(CÍCERO RICARDO FARIAS DE LIMA JÚNIOR; CLARA EDUARDA HENRIQUE SIQUEIRA DE ARAÚJO; DÉBORA ANDRÉA RODRIGUES;  EDILSON GONÇALVES OLIVEIRA; GEOVANA MICKAELA CAMPOS AMORIM; GUSTAVO RAMON GOMES SANDES; LIBILLY BENTO DOS SANTOS; LUCAS DANIEL SANTOS BEZERRA; MARCELO ALVES FEITOZA; MATEUS LUCAS DA SILVA; MAYAN CARDOSO DE BRITO).
+ 
 
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.3</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>br.ifba.tarefa</groupId>
-	<artifactId>Tarefa_Front</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Tarefa_Front</name>
-	<description>Tarefa API</description>
-	<properties>
-		<java.version>11</java.version>
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+## Quais linguagens e tecnologias foram usadas ?
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.projectreactor</groupId>
-			<artifactId>reactor-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+Linguagens( Java 11, SQL, HTML, CSS, Javascript) Frameworks e IDEs ( Sprint to Suite 4, Mysql Workbench, Insomnia, Bootstrap, ) Templates (Thymeleaf).
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+## Como importar o projeto da forma correta ?
 
-</project>
+
+– É necessário ter o Sprint to Suíte 4  e o Mysql Workbench instalados no computador.
+– É necessário importar os dois repositórios presentes no github do projeto, (Backend e Frontend).
+Passo a Passo → (Siga o passo a passo a risca para evitar erros de configuração)
+1→ Faça Um Fork do projeto para o seu github pessoal, do (Backend e Frontend) copiando apenas a Branch Master (*Desmarque a Branch Main ao copiar*). 2→ (no Spring to Suite, clique em (window) → (show view) → (Other) → (Git) → (Git Repositories). 3→ Copie o link dos repositórios na branch master e clone os repositórios no seu Sprint to Suíte. 3→ Com o botão esquerdo clique em (file) → (Open project from File System) → (Directory) → (Dentro do seu usuário procure por uma pasta chamada “git” ) –. (Selecione o projeto) → (Finish) → (Espere baixar as dependências ) → (Dê start no projeto) → (teste no navegador). 4 → Caso ocorra algum erro, com o botão direito, clique no projeto → (Maven) – (Update project).
+
+
+
+
